@@ -19,6 +19,14 @@ function has_next_page() {
 
 }
 
+/**
+ * gets the current page number
+ * @return int
+ */
+function get_page_number() {
+	return get_query_var('paged') ? get_query_var('paged') : 1;
+}
+
 
  //**********
 // POST SLUG
