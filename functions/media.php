@@ -5,7 +5,14 @@
 // ADD THUMBNAIL SIZES
 
 /**
- * add_aspect_ratio, creates a WordPress image size based on a width and an aspect ratio
+ * Creates a WordPress image size based on a width and an aspect ratio
+ *
+ * Example usage and image size names
+ *
+ * add_aspect_ratio('hero', 900, 16, 9) // hero_900
+ * add_aspect_ratio('hero', 600, 16, 9) // hero_600
+ * add_aspect_ratio('hero', 300, 16, 9) // hero_300
+ * 
  * @param string $label
  * @param integer $width
  * @param integer $aspect_width
