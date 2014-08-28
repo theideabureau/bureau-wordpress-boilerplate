@@ -253,3 +253,28 @@ function get_partial($collection, $object = NULL, $options = array()) {
 function get_partial_options($options = array(), $defaults = array()) {
 	return (object) array_merge($defaults, $options);
 }
+
+/**
+ * Performs a sub-string, appends a string and returns it
+ * @param  string $string
+ * @param  integer $length
+ * @return string
+ */
+function get_substr($string, $length) {
+
+	if ( strlen($string) > $length ) {
+		return $string = trim(substr($string, 0, $length)) . '&hellip;';
+	}
+
+	return $string;
+
+}
+
+/**
+ * echos the output from get_substr
+ * @param  string $string
+ * @param  integer $length
+ */
+function the_substr($string, $length) {
+	echo get_substr($string, $length);
+}
