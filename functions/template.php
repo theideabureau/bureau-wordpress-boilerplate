@@ -221,3 +221,35 @@ function array_columns($array, $columns = 2) {
 	return $output_array;
 
 }
+
+/**
+ * Includes partial templates, similar to get_template_part() * 
+ * @param  string $collection
+ * @param  string $object
+ * @param  array  $options
+ */
+function get_partial($collection, $object = NULL, $options = array()) {
+
+	$paths = array();
+
+	// if $object has been specified, create add the full path to the array
+	if ( $object !== NULL ) {
+		$paths[] = implode('/', ['partials', $collection, $object]) . '.php';
+	}
+
+	// add the "default" fallback path to tge array
+	$paths[] = implode('/', ['partials', $collection, 'default']) . '.php';
+
+	include(locate_template($paths));
+
+}
+
+/**
+ * Returns an array of merge partial options
+ * @param  array $options 
+ * @param  array $defaults
+ * @return array
+ */
+function get_partial_options($options = array(), $defaults = array()) {
+	return (object) array_merge($defaults, $options);
+}
