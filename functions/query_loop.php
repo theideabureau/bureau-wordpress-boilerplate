@@ -1,15 +1,31 @@
 <?php // functions/query_loop.php
 
 /**
- * an improved version of WP_Query
- * allows for us in foreach, can be used with count()
+ * An improved version of WP_Query
+ *
+ * Features
+ * - Accepts the same arguments as WP_Query
+ * - Can be used within a foreach
+ * - Can be counted within count()
+ * - Automatically calls have_posts() and the_post() on each iteration
+ * 
  * @param  array $args
  * @return array
  */
 class query_loop implements Iterator, Countable {
+
+	public $post_ids = array();
 	
 	public function __construct( $args = array() ) {
-		$this->query = new WP_Query( $args );
+
+		// init WP_Query
+		$this->query = new WP_Query($args);
+
+		// compile a list of post_ids
+		foreach ( $this->query->posts as $post ) {
+			$this->post_ids[] = $post->ID;
+		}
+
 	}
 
 	function count() {
@@ -41,4 +57,9 @@ class query_loop implements Iterator, Countable {
 			return false;
 		}
 	}
+
+	function have_posts() {
+		return $this->query->have_posts();
+	}
+
 }
