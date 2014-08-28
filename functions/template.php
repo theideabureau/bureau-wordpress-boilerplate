@@ -143,3 +143,28 @@ function sort_posts_by_date($posts) {
 	return $posts;
 
 }
+
+/**
+ * Includes a template partial and passes an optional posts array
+ * @param  string $slug
+ * @param  string $name
+ * @param  array $posts
+ */
+function get_posts_template($slug, $name = '', $posts = NULL) {
+
+	$templates = array();
+
+	if ( ! empty($name) ) {
+		$templates[] = "{$slug}-{$name}.php";
+	}
+
+	$templates[] = "{$slug}.php";
+
+	if ( $posts === NULL ) {
+		global $wp_query;
+		$posts = $wp_query->posts;
+	}
+
+	include(locate_template($templates));
+
+}
