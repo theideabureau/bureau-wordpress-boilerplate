@@ -4,6 +4,10 @@
  //*************
 // ADD CPT MENU
 
+/**
+ * Adds custom post type archive support to the menu system
+ */
+
 add_action('admin_head-nav-menus.php', 'inject_cpt_archives_menu_meta_box');
 add_filter('wp_get_nav_menu_items', 'cpt_archive_menu_filter', 10, 3);
 	
@@ -18,13 +22,12 @@ function wp_nav_menu_cpt_archives_meta_box() {
 
 	/* hydrate the necessary object properties for the walker */
 	foreach ( $post_types as &$post_type ) {
-			$post_type->classes = array();
-			$post_type->type = $post_type->name;
-			$post_type->object_id = $post_type->name;
-			$post_type->title = $post_type->labels->name . ' ' . __( 'Archive', 'default' );
-			$post_type->object = 'cpt-archive';
+		$post_type->classes = array();
+		$post_type->type = $post_type->name;
+		$post_type->object_id = $post_type->name;
+		$post_type->title = $post_type->labels->name;
+		$post_type->object = 'cpt-archive';
 	}
-
 
 	$walker = new Walker_Nav_Menu_Checklist( array() );
 
