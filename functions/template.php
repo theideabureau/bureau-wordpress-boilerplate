@@ -121,3 +121,25 @@ function array_multi_implode($standard_glue, $last_nodes_glue, $array) {
 	return implode($standard_glue, $array);
 
 }
+
+/**
+ * sorts WP posts array by date
+ * @return (array) sorted array of WP psots
+ */
+function sort_posts_by_date($posts) {
+
+	usort($posts, function($a, $b) {
+
+		// if the values are the same don't re-order
+		if ( $a == $b ) {
+			return 0;
+		}
+
+		// re-order the preferred larger value
+		return ( strtotime($a->post_date) > strtotime($b->post_date) ) ? -1 : 1;
+
+	});
+
+	return $posts;
+
+}
