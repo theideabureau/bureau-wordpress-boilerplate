@@ -196,3 +196,28 @@ function load_post($posts, $index) {
 	return TRUE;
 
 }
+
+/**
+ * Split an array up into columns
+ * @param  array $array
+ * @param  integer $columns
+ * @return array
+ */
+function array_columns($array, $columns = 2) {
+
+	$output_array = array();
+	$counter = 0;
+
+	foreach ( $array as $key => $value ) {
+
+		$output_array[$counter][$key] = $value;
+
+		if ( $counter++ >= ($columns - 1) ) {
+			$counter = 0;
+		}
+
+	}
+
+	return $output_array;
+
+}
