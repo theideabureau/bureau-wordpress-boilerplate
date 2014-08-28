@@ -168,3 +168,23 @@ function get_posts_template($slug, $name = '', $posts = NULL) {
 	include(locate_template($templates));
 
 }
+
+/**
+ * Checks if a post exists within an array, loads it and returns success
+ * @param  array $posts
+ * @param  integer $index
+ * @return boolean
+ */
+function load_post($posts, $index) {
+
+	global $post;
+
+	if ( ! isset($posts[$index]) ) {
+		return FALSE;
+	}
+
+	setup_postdata($post = $posts[$index]);
+
+	return TRUE;
+
+}
