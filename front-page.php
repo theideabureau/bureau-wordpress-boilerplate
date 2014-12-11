@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 
-	<?php if ( have_post() ) : the_post(); ?>
+	<?php if ( have_posts() ) : the_post(); ?>
 
 		<h1><?php the_title(); ?></h1>
 
