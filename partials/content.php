@@ -1,4 +1,4 @@
-<?php // parts/content.pgp ?>
+<?php // parts/content.php ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
