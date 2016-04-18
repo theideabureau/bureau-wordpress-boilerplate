@@ -102,7 +102,7 @@ add_filter('excerpt_length', function($length) {
 }, 999);
 
 add_filter('wp_trim_excerpt', function($excerpt) {
-	return str_replace( '[...]', '...', $excerpt );
+	return trim(str_replace('[&hellip;]', '', $excerpt)) . '&hellip;';
 });
 
 
