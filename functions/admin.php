@@ -12,7 +12,7 @@ if ( FALSE ) {
 
 	add_action('admin_head-nav-menus.php', 'inject_cpt_archives_menu_meta_box');
 	add_filter('wp_get_nav_menu_items', 'cpt_archive_menu_filter', 10, 3);
-		
+
 	function inject_cpt_archives_menu_meta_box() {
 		add_meta_box( 'add-cpt', __( 'CPT Archives', 'default' ), 'wp_nav_menu_cpt_archives_meta_box', 'nav-menus', 'side', 'default' );
 	}
@@ -51,14 +51,14 @@ if ( FALSE ) {
 		</p>
 		<?php
 	}
-	 
+
 	/* take care of the urls */
 	function cpt_archive_menu_filter( $items, $menu, $args ) {
 		/* alter the URL for cpt-archive objects */
 		foreach ( $items as &$item ) {
 			if ( $item->object != 'cpt-archive' ) continue;
 			$item->url = get_post_type_archive_link( $item->type );
-			
+
 			/* set current */
 			if ( get_query_var( 'post_type' ) == $item->type ) {
 				$item->classes []= 'current-menu-item';
@@ -87,11 +87,11 @@ if ( FALSE ) {
 		if ( get_post_type() === 'page' && isset($_GET['post']) && get_field('critical_page', $_GET['post']) === TRUE ) {
 
 			?>
-			
+
 				<div class="error">
 					<p><strong>Attention:</strong> This is a critical page, be cautious when editing or deleting this page.</p>
 				</div>
-				
+
 			<?php
 
 		}
@@ -103,7 +103,7 @@ if ( FALSE ) {
 		echo '<style>
 		.fixed .column-critical {
 			width: 4em;
-		} 
+		}
 		.critical-icon {
 			border-radius: 50%;
 			display: inline-block;
@@ -122,7 +122,7 @@ if ( FALSE ) {
 
 		$columns = array();
 
-		foreach ( $defaults as $key => $title ) { 
+		foreach ( $defaults as $key => $title ) {
 
 			if ( $key == 'author' ) {
 				$columns['critical'] = 'Critical';
@@ -145,7 +145,7 @@ if ( FALSE ) {
 				if ( get_field('critical_page', $post_id) === TRUE ) {
 					echo '<span class="critical-icon" title="This is a critical page, be cautious when editing or deleting this page">!</span>';
 				}
-		
+
 			}
 
 		}
