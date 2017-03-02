@@ -11,7 +11,7 @@ class LogData {
 		global $wpdb;
 
 		// just in case the table doesn't exist, re-create it
-		$wpdb->query("CREATE TABLE IF NOT EXISTS `mec_log` (
+		$wpdb->query("CREATE TABLE IF NOT EXISTS `log_data` (
 		  `id` INT NOT NULL AUTO_INCREMENT,
 		  `user_id` INT NOT NULL,
 		  `user_email` VARCHAR(255) NOT NULL DEFAULT '',
@@ -49,7 +49,7 @@ class LogData {
 
 		global $wpdb;
 
-		$wpdb->insert('mec_log', [
+		$wpdb->insert('log_data', [
 			'user_id' => $user->data->ID,
 			'user_email' => $user->data->user_email,
 			'user_role' => $user->roles[0],
