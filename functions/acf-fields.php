@@ -1,6 +1,17 @@
 <?php // functions/acf-fields.php
 
 /**
+ * Adds options page
+ */
+
+if ( FALSE ) {
+	if ( function_exists('acf_add_options_page') ) {
+		acf_add_options_page();
+	}
+}
+
+
+/**
  * Adds various sub-options pages
  */
 
