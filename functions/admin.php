@@ -75,10 +75,10 @@ if ( FALSE ) {
 //********************
 // CUSTOM FOOTER TEXT
 
-add_filter('admin_footer_text', 'remove_footer_admin');
-function remove_footer_admin () {
-	echo "Designed and Built by <a href='http://theideabureau.co' target='_blank'>The Idea Bureau</a>";
-}
+add_filter('admin_footer_text', function() {
+	echo 'Designed and Built by <a href="https://theideabureau.co" target="_blank">The Idea Bureau</a>';
+});
+
 
  //**************
 // DISABLE EMOJI
