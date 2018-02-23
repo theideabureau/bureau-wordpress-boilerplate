@@ -83,63 +83,60 @@ add_filter('admin_footer_text', function() {
  //**************
 // DISABLE EMOJI
 
-function disable_wp_emojicons() {
-
-  // all actions related to emojis
-  remove_action( 'admin_print_styles', 'print_emoji_styles' );
-  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-  remove_action( 'wp_print_styles', 'print_emoji_styles' );
-  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-}
-add_action( 'init', 'disable_wp_emojicons' );
+add_action('init', function() {
+	remove_action('admin_print_styles', 'print_emoji_styles');
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('admin_print_scripts', 'print_emoji_detection_script');
+	remove_action('wp_print_styles', 'print_emoji_styles');
+	remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+	remove_filter('the_content_feed', 'wp_staticize_emoji');
+	remove_filter('comment_text_rss', 'wp_staticize_emoji');
+});
 
 
  //*****************************
 // DISABLE UPDATE NOTIFICATIONS
 
-if ( FALSE ) {
+/*
 
-	// maintain a list of users to show update notifications to
-	$show_updates_to = ['username1', 'username2'];
+// maintain a list of users to show update notifications to
+$show_updates_to = ['username1', 'username2'];
 
-	// check the current user againsts the show updated to list
-	if ( array_search(wp_get_current_user()->user_login, $show_updates_to) === FALSE ) {
+// check the current user againsts the show updated to list
+if ( array_search(wp_get_current_user()->user_login, $show_updates_to) === FALSE ) {
 
-		// remove nag message
-		add_action('after_setup_theme', function() {
+	// remove nag message
+	add_action('after_setup_theme', function() {
 
-			if ( ! current_user_can('update_core')) {
-				return;
-			}
-
-			add_action('init', create_function('$a',"remove_action( 'init', 'wp_version_check' );"),2);
-			add_filter('pre_option_update_core','__return_null');
-			add_filter('pre_site_transient_update_core','__return_null');
-
-		});
-
-		// remove plugin update notification
-		remove_action('load-update-core.php','wp_update_plugins');
-		add_filter('pre_site_transient_update_plugins','__return_null');
-
-		function remove_core_updates() {
-
-			global $wp_version;
-
-			return (object) array(
-				'last_checked' => time(),
-				'version_checked' => $wp_version
-			);
-
+		if ( ! current_user_can('update_core')) {
+			return;
 		}
 
-		add_filter('pre_site_transient_update_core','remove_core_updates');
-		add_filter('pre_site_transient_update_plugins','remove_core_updates');
-		add_filter('pre_site_transient_update_themes','remove_core_updates');
+		add_action('init', create_function('$a',"remove_action( 'init', 'wp_version_check' );"),2);
+		add_filter('pre_option_update_core','__return_null');
+		add_filter('pre_site_transient_update_core','__return_null');
+
+	});
+
+	// remove plugin update notification
+	remove_action('load-update-core.php','wp_update_plugins');
+	add_filter('pre_site_transient_update_plugins','__return_null');
+
+	function remove_core_updates() {
+
+		global $wp_version;
+
+		return (object) array(
+			'last_checked' => time(),
+			'version_checked' => $wp_version
+		);
 
 	}
 
+	add_filter('pre_site_transient_update_core','remove_core_updates');
+	add_filter('pre_site_transient_update_plugins','remove_core_updates');
+	add_filter('pre_site_transient_update_themes','remove_core_updates');
+
 }
+
+*/
