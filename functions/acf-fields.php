@@ -1,36 +1,28 @@
 <?php // functions/acf-fields.php
 
-/**
- * Adds options page
- */
 
-if ( FALSE ) {
-	if ( function_exists('acf_add_options_page') ) {
-		acf_add_options_page();
-	}
-}
+ //********
+// OPTIONS
 
+/*
 
-/**
- * Adds various sub-options pages
- */
+if ( function_exists('acf_add_options_page') && function_exists('acf_add_options_sub_page') ) {
 
-if ( FALSE ) {
+	acf_add_options_sub_page('Options');
 
-	add_filter('acf/options_page/settings', function($settings) {
-
-		$settings['title'] = 'Options';
-		$settings['pages'] = array('General', 'Social', 'Contact', 'Subscription', 'Menu', 'Adverts');
-
-		return $settings;
-
-	});
+	acf_add_options_page([
+		'page_title' => 'Sub Page',
+		'menu_title' => 'Sub Page',
+		'menu_slug' => 'sub-page'
+	]);
 
 }
 
+*/
 
- //****************
-// CUSTOM LOCATION
+
+ //**********************
+// ACF SUPPORTS LOCATION
 
 /*
 
