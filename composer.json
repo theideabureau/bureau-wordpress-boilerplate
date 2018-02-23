@@ -1,0 +1,11 @@
+{
+    "require": {
+	    "theideabureau/wordpress-foundation": "dev-develop"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:theideabureau/wordpress-foundation.git"
+        }
+    ]
+}
