@@ -1,12 +1,21 @@
-# WordPress Boilerplate
+# The Idea Bureau, WordPress Boilerplate
 
-Version: 1.1.0
+Version: 1.1.1
 
 Our homegrown WordPress boilerplate, used on most of the projects here at The Idea Bureau
 
-## Notes
+## **Installation**
 
-- Requires PHP version 5.3 or higher
-- Optional functionality should be commented or conditioned out
-- Does not provide front-end assets, consider using the [front-end boilerplate](https://github.com/theideabureau/Front-End-Boilerplate)
-- Raise any requests / bugs within [Github issues](https://github.com/theideabureau/WordPress-Boilerplate/issues)
+### Required assets in order to run the boilerplate
+
+- [Install composer](https://getcomposer.org/doc/00-intro.md)
+
+### Setup process
+
+1. Download the repository (don't clone) and fire up a terminal window inside the root folder
+
+2. Type the following command:
+
+```
+composer install
+```
