@@ -1,6 +1,6 @@
 # The Idea Bureau, WordPress Boilerplate
 
-Version: 1.2.0
+Version: 1.1.1
 
 Our homegrown WordPress boilerplate, used on most of the projects here at The Idea Bureau
 
