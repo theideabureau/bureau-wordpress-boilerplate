@@ -22,7 +22,7 @@
 
 ## Project dependencies
 
-- PHP 7.4
+- PHP 8.1
 - [Composer](https://getcomposer.org/download/)
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 - [Node 20](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)

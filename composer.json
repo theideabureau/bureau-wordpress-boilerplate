@@ -12,7 +12,7 @@
     ],
     "require": {
         "composer/installers": "^1.0",
-        "rareloop/lumberjack-core": "^5.0",
+        "rareloop/lumberjack-core": "dev-add-php-81-support",
         "vlucas/phpdotenv": "^5.4",
         "imgix/imgix-php": "^3.3"
     },
