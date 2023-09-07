@@ -1,0 +1,25 @@
+<div class="author">
+    <div class="author__data">
+        <div class="author__name">
+            {{ block.name }}
+        </div>
+
+        {% if block.description %}
+        <span class="author__description">
+            {{ block.description }}
+        </span>
+        {% endif %}
+
+        {% if block.time %}
+            <span class="author__description">
+                {% if block.time.prefix %}
+                    {{ block.time.prefix }}
+                {% endif %}
+
+                <time datetime="{{ block.time.raw }}">
+                    {{ block.time.formatted }}
+                </time>
+            </span>
+        {% endif %}
+    </div>
+</div>

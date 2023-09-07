@@ -1,0 +1,96 @@
+{
+    "key": "group_64b92c0c27546",
+    "title": "Page → Options",
+    "fields": [
+        {
+            "key": "field_64b92c0c7524e",
+            "label": "Colour Scheme",
+            "name": "page__colour_scheme",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "brand": "Brand",
+                "#Core Services": "#Core Services",
+                "24-7-services": "24\/7 Services",
+                "data-analytics": "Data & Analytics",
+                "investigation-services": "Investigation Services",
+                "loss-adjusting": "Loss Adjusting",
+                "motor-services": "Motor Services",
+                "park-home-and-leisure": "Park Home & Leisure",
+                "repair-and-restoration": "Repair & Restoration",
+                "subsidence": "Subsidence",
+                "surveying-and-project-management": "Surveying Services",
+                "technology-and-saas": "Technology & SaaS",
+                "third-party-administration": "Third Party Administration",
+                "underground-services": "Underground Services",
+                "validation": "Validation",
+                "#Other Services": "#Other Services",
+                "synergy-cloud": "Synergy Cloud",
+                "weathernet": "Weathernet",
+                "#Misc" : "#Misc",
+                "sustainability" : "Sustainability"
+            },
+            "default_value": "brand",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_64ca5adca75a8",
+            "label": "Display \"C\" background icon?",
+            "name": "page__display_c_background_icon",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Select whether an optional background \"C\" icon should be displayed at the top of the page, behind the header.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1690983747
+}

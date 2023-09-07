@@ -1,0 +1,23 @@
+<div
+    class="content-panel"
+    data-show-background="{{ block.show_background ? "true" : "false" }}"
+    data-center-text="{{ block.center_text ? "true" : "false" }}"
+    data-is-dark="{{ block.is_dark ? "true" : "false" }}"
+    data-is-transparent="{{ block.is_transparent ? "true" : "false" }}"
+    data-accent-colour="{{ block.colour_scheme }}"
+    data-block-spacing="none"
+>
+    {% if block.show_background %}
+        <div class="content-panel__decor">
+            {% if block.is_dark %}
+                <svg><use xlink:href="#content-panel-decor-dark" /></svg>
+            {% else %}
+                <svg><use xlink:href="#content-panel-decor" /></svg>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <InnerBlocks template="{{ block.template }}" />
+    </div>
+</div>

@@ -1,13 +1,26 @@
-<?php // front-page.php ?>
+<?php
 
-<?php get_header(); ?>
+/**
+ * The Template for displaying the home page
+ */
 
-	<?php if ( have_posts() ) : the_post(); ?>
+namespace App;
 
-		<h1><?php the_title(); ?></h1>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-		<?php the_content(); ?>
+class FrontPageController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
 
-	<?php endif; ?>
+        $page = new Page();
 
-<?php get_footer(); ?>
+        $context['page']['content'] = $page->content;
+
+        return new TimberResponse('templates/generic-page.twig', $context);
+    }
+}

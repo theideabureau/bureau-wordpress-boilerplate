@@ -1,0 +1,160 @@
+<header class="site-header" x-data="{ mobileOpen: false }">
+    <div class="site-header__inner">
+        <a href="/" class="site-header__logo" aria-label="Go to homepage">
+            <img src="{{ theme.uri }}/resources/img/brand/logo.svg" alt="Project Name logo" />
+        </a>
+
+        {# desktop links #}
+        <nav class="site-header__nav-links-desktop">
+            <ul class="nav-links">
+                {% for item in header.menu.items %}
+                    <li class="nav-links__item">
+                        <a
+                            href="{{ item.url }}"
+                            class="{{ item.classes | join(' ') }} / nav-links__link"
+                        >
+                            {{ item.title }}
+                        </a>
+
+                        {% if item.meta('has_icon_dropdown') %}
+                            <svg class="nav-links__arrow">
+                                <use xlink:href="#icon-chevron-down"></use>
+                            </svg>
+
+                            <div class="nav-links__child-links">
+                                <ul class="child-links">
+                                    {% for link in item.meta('icon_links') %}
+                                        <li class="child-links__item">
+                                            <a
+                                                href="{{ link.link.url }}"
+                                                class="child-link"
+                                                {% if current_url == link.link.url %}
+                                                    data-active="true"
+                                                {% endif %}
+                                            >
+                                                <img
+                                                    class="child-link__icon"
+                                                    src="{{ link.icon.url }}"
+                                                    alt="{{ link.icon.alt }}"
+                                                    loading="lazy"
+                                                />
+                                                <span>{{ link.link.title }}</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+
+                                {% if item.meta('call_to_action') %}
+                                    {% set cta = item.meta('call_to_action') %}
+
+                                    <a
+                                        class="nav-links__view-all"
+                                        href="{{ cta.url }}"
+                                        class="child-link"
+                                    >
+                                        {{ cta.title }}
+                                        <svg><use xlink:href="#icon-arrow-right" /></svg>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {# end of desktop links #}
+
+        <div class="site-header__actions">
+            <a
+                aria-label="Go to search page"
+                href="/search"
+                class="site-header__search-button"
+            >
+                <svg><use xlink:href="#icon-search"></use></svg>
+            </a>
+
+            <div class="site-header__mobile-toggle">
+                <button
+                    class="button button--small"
+                    @click="mobileOpen = !mobileOpen"
+                >
+                    <span x-show="! mobileOpen">Menu</span>
+                    <span x-show="mobileOpen">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {# mobile links #}
+    <nav
+        class="site-header__nav-links-mobile"
+        :data-mobile-open="mobileOpen ? 'true' : 'false'"
+    >
+        <ul class="nav-links">
+            <li class="nav-links__item">
+                <a
+                    href="/"
+                    class="nav-links__link {% if is_front_page %}current-menu-item{% endif %}"
+                >
+                    Home
+                </a>
+            </li>
+
+            {% for item in header.menu.items %}
+                {% if item.meta('has_icon_dropdown') == false %}
+                    <li class="nav-links__item">
+                        <a
+                            href="{{ item.url }}"
+                            class="{{ item.classes | join(' ') }} / nav-links__link"
+                        >
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-links__item" x-data="{ childMenuOpen: false }">
+                        <button
+                            class="{{ item.classes | join(' ') }} / nav-links__link"
+                            @click="childMenuOpen = ! childMenuOpen"
+                            :data-child-menu-open="childMenuOpen ? 'true' : 'false'"
+                        >
+                            {{ item.title }}
+
+                            <svg class="nav-links__arrow">
+                                <use xlink:href="#icon-chevron-down"></use>
+                            </svg>
+                        </button>
+
+                        <div x-show="childMenuOpen" class="nav-links__child-links">
+                            <ul class="child-links">
+                                {% for link in item.meta('icon_links') %}
+                                    <li class="child-links__item">
+                                        <a
+                                            href="{{ link.link.url }}"
+                                            class="child-link"
+                                        >
+                                            {{ link.link.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
+                                {% if item.meta('call_to_action') %}
+                                    {% set cta = item.meta('call_to_action') %}
+
+                                    <li class="child-links__item">
+                                        <a
+                                            href="{{ cta.url }}"
+                                            class="child-link"
+                                        >
+                                            {{ cta.title }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    {# end of mobile links #}
+</header>

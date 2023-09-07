@@ -1,0 +1,29 @@
+<div
+    class="event-tab-container / block-container"
+    data-block-gap="small"
+    data-is-preview="{{ block.is_preview ? 'true' : 'false' }}"
+    {% if block.is_preview == false %}
+        x-data="{ currentTab: '{{ block.current_tab }}' }"
+    {% endif %}
+>
+    {% if block.is_preview == false %}
+        <div class="event-tab-container__tabs">
+            <div class="button-group">
+                {% for tabID, heading in block.tab_headings %}
+                    <button
+                        class="button-group__item"
+                        @click="currentTab = '{{ tabID }}'"
+                        :class="currentTab == '{{ tabID }}' ? 'active' : ''"
+                    >
+                        {{ heading }}
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <InnerBlocks
+        template="{{ block.template }}"
+        allowedBlocks="{{ block.allowed_blocks }}"
+    />
+</div>

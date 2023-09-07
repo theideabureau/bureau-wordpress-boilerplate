@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="search-grid">
+            <div class="search-grid__header">
+                <h1>
+                    <span class="h4">Search results for</span> <br /><strong class="search__term">"{{ search.query }}"</strong>
+                </h1>
+            </div>
+
+            <div class="search-grid__form">
+                <form class="search__form" action="/">
+                    <input type="search" name="s" placeholder="Type something" class="input--has-border" value="{{ search.query }}" />
+                </form>
+            </div>
+
+            <div class="search-grid__results">
+                {% if search.results %}
+                    <div class="block-container" data-block-gap="tiny">
+                        {% for block in search.results %}
+                            {% include 'templates/blocks/search-result.twig' with {
+                                block
+                            } %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="alert-panel" data-color="teal">
+                        <svg class="alert-panel__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 52 45"><path d="m50.2 27.35-10.53-9.47H12.33L1.81 27.35.36 25.74 11.5 15.7h29l11.14 10.03-1.45 1.6Zm-1.45 17.07H3.25A3.25 3.25 0 0 1 0 41.17V25.46h17.33v1.08a4.88 4.88 0 0 0 4.88 4.88h7.58a4.88 4.88 0 0 0 4.88-4.88v-1.08H52v15.7c0 1.8-1.46 3.26-3.25 3.26ZM2.17 27.62v13.55c0 .6.48 1.08 1.08 1.08h45.5c.6 0 1.08-.49 1.08-1.08V27.63H36.75a7.05 7.05 0 0 1-6.96 5.95h-7.58a7.05 7.05 0 0 1-6.96-5.95H2.17ZM19.33 7l-3.8-5.96-1.82 1.17 3.8 5.96L19.32 7Zm19.5-4.8L37 1.05 33.21 7l1.83 1.16 3.8-5.95ZM27.08 0h-2.16v7.04h2.16V0Z"/></svg>
+
+                        <h4>We couldn’t find what you were looking for</h4>
+                        <p>Try using a different search term.</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="search-grid__popular_resource">
+                {% include 'templates/search/_popular-resources.twig' with {
+                    'resources': search.popular_resources
+                } %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

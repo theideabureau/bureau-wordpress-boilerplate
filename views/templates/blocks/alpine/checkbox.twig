@@ -1,0 +1,17 @@
+<label class="checkbox">
+    <input
+        class="checkbox__input visually-hidden"
+        type="checkbox"
+        value="{{ block.value }}"
+
+        {% if block.model is defined %}
+            x-model="{{ block.model }}"
+        {% endif %}
+    >
+    <span
+        class="checkbox__label"
+        for="{{ block.value }}"
+    >
+        {{ block.label }}
+    </span>
+</label>

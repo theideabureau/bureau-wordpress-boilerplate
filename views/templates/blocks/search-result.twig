@@ -1,0 +1,17 @@
+<div class="search-result" data-block-spacing>
+    <a class="search-result__link" href="{{ block.url }}">
+        <h3 class="search-result__title">
+            {{ block.title }}
+        </h3>
+    </a>
+
+    {% if block.description %}
+        <p class="search-result__description">
+            {{ block.description }}
+        </p>
+    {% endif %}
+
+    <i class="search-result__arrow">
+        <svg><use xlink:href="#icon-arrow-right" /></svg>
+    </i>
+</div>

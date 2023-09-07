@@ -1,0 +1,22 @@
+<section class="content-with-image" data-block-spacing>
+    <div class="content-with-image__inner">
+        <div class="content-with-image__blocks">
+            <InnerBlocks template="{{ block.template }}" />
+        </div>
+        <div class="content-with-image__image-wrapper">
+            {{
+                imgix({
+                    src: block.image.url,
+                    alt: block.image.alt,
+                    params: {
+                        auto: "format",
+                        fit: "crop",
+                        crop: "faces"
+                    },
+                    scrset_widths: [256, 512, 768, 1024],
+                    sizes: "(max-width: 768px) 66vw, 768px"
+                })
+            }}
+        </div>
+    </div>
+</section>

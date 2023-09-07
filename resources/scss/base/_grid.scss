@@ -1,0 +1,56 @@
+$grid-columns: 12;
+
+%grid {
+    display: grid;
+    grid-gap: grid-gap('base');
+
+    @include from('md') {
+        grid-gap: grid-gap('md');
+    }
+
+    @include from('lg') {
+        grid-gap: grid-gap('lg');
+    }
+}
+
+.grid {
+    @extend %grid;
+
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+
+    &__col {
+        grid-column-end: span 12;
+        max-width: 100%;
+
+        &--sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+    }
+
+    @include from("md") {
+        @for $i from 1 through $grid-columns {
+            &__col--#{$i}-md {
+                grid-column-end: span #{$i};
+            }
+
+            &__col--offset-#{$i}-md {
+                grid-column-start: $i;
+            }
+        }
+    }
+
+    @include from("lg") {
+        @for $i from 1 through $grid-columns {
+            &__col--#{$i}-lg {
+                grid-column-end: span #{$i};
+            }
+
+            &__col--offset-#{$i}-lg {
+                grid-column-start: $i;
+            }
+        }
+    }
+}

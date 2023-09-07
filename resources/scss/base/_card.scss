@@ -1,0 +1,9 @@
+%card {
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius;
+}
+
+.card {
+    @extend %card;
+}

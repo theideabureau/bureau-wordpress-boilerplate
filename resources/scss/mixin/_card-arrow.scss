@@ -1,0 +1,18 @@
+@mixin card-arrow() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: var(--card-arrow-width, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--icon-card-accent-colour);
+    color: var(--white);
+
+    svg {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+    }
+}

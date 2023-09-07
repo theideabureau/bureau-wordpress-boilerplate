@@ -1,0 +1,277 @@
+{
+    "key": "group_624cb1a99cbd1",
+    "title": "Block → Grid Column",
+    "fields": [
+        {
+            "key": "field_624cb20111f98",
+            "label": "Columns",
+            "name": "columns",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_624cb24e11f99",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 12,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": 12,
+                    "step": 1
+                },
+                {
+                    "key": "field_624cb25811f9a",
+                    "label": "Tablet",
+                    "name": "tablet",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 4,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": 12,
+                    "step": 1
+                },
+                {
+                    "key": "field_624cb26211f9c",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 4,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": 12,
+                    "step": 1
+                }
+            ]
+        },
+        {
+            "key": "field_624d3f8ccaf80",
+            "label": "Offsets",
+            "name": "offsets",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_624d3f8ccaf81",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": 12,
+                    "step": 1
+                },
+                {
+                    "key": "field_624d3f8ccaf82",
+                    "label": "Tablet",
+                    "name": "tablet",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": 12,
+                    "step": 1
+                },
+                {
+                    "key": "field_624d3f8ccaf83",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": 12,
+                    "step": 1
+                }
+            ]
+        },
+        {
+            "key": "field_64293aac8f899",
+            "label": "Orders",
+            "name": "orders",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_64293aac8f89a",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": 1,
+                    "max": 12,
+                    "placeholder": "",
+                    "step": 1,
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64293aac8f89b",
+                    "label": "Tablet",
+                    "name": "tablet",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": 1,
+                    "max": 12,
+                    "placeholder": "",
+                    "step": 1,
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64293aac8f89c",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": 1,
+                    "max": 12,
+                    "placeholder": "",
+                    "step": 1,
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "project-name\/grid-column"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1689668759
+}

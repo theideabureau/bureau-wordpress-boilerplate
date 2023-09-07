@@ -1,0 +1,28 @@
+<div
+    class="event-details"
+    data-is-stacked="{{ block.is_stacked ? 'true' : 'false' }}"
+>
+    {% if block.date %}
+        <div class="event-details__item">
+            <i class="event-details__icon">
+                <svg><use xlink:href="#icon-calendar" /></svg>
+            </i>
+
+            <time datetime="{{ block.date.raw }}">
+                {{ block.date.formatted }}
+            </time>
+        </div>
+    {% endif %}
+
+    {% if block.hour and block.hour.formatted %}
+        <div class="event-details__item">
+            <i class="event-details__icon">
+                <svg><use xlink:href="#icon-clock" /></svg>
+            </i>
+
+            <time>
+                {{ block.hour.formatted }}
+            </time>
+        </div>
+    {% endif %}
+</div>

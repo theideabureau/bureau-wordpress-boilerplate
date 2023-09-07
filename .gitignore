@@ -6,12 +6,20 @@
 .tmproj
 nbproject
 Thumbs.db
-
-node_modules/
-npm-debug.log
 .tmp
+
+# npm
+node_modules
+npm-debug.log
+package-lock.json
 
 # composer
 vendor
 composer.phar
 composer.lock
+
+# project
+.env
+dist
+
+# others

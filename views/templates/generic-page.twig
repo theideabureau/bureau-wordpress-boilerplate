@@ -1,0 +1,7 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container / block-container" data-accent-colour="{{ page.colour_scheme }}">
+        {{ page.content | raw }}
+    </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+$button-icon-size: .75em;
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: spacing(.5) spacing(1.5);
+    border-radius: 0.375rem;
+    background: var(--button-colour, var(--accent-colour-primary));
+    color: var(--white);
+    font-size: $font-size-sm;
+    font-weight: 500;
+    line-height: $leading-relaxed;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 0;
+    appearance: none;
+
+    @media (hover: hover) {
+        &:hover {
+            .button__icon--arrow {
+                transform: translateX(0.2em);
+            }
+        }
+    }
+
+    @include from(md) {
+        &:not(.button--small),
+        &:not([data-is-small="true"]) {
+            padding: spacing(1) spacing(2);
+            border-radius: 0.5rem;
+            font-size: $font-size-base;
+        }
+    }
+
+    &[aria-disabled="true"] {
+        opacity: .5;
+        pointer-events: none;
+    }
+}
+
+.button--block {
+    width: 100%;
+}
+
+.button--light,
+.button[data-is-light="true"] {
+    $button-bg-colour: var(--white);
+    $button-text-colour: var(--button-colour, var(--accent-colour-primary));
+
+    background: $button-bg-colour;
+    color: $button-text-colour;
+}
+
+.button--ghost,
+.button[data-is-ghost="true"] {
+    border: 1px solid;
+    background: transparent;
+    color: inherit;
+}
+
+.button--text,
+.button[data-is-text="true"],
+.button[data-is-text="true"][data-is-small="true"] {
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: var(--accent-colour-primary, var(--brand-dark));
+    font-weight: 600;
+}
+
+.button__icon {
+    display: block;
+    width: $button-icon-size;
+    height: $button-icon-size;
+    line-height: 0;
+
+    &--arrow {
+        transition: transform 0.3s ease-out;
+    }
+}

@@ -1,0 +1,120 @@
+.people-accordion {
+    color: var(--accent-colour-dark);
+}
+
+.people-accordion__section:not(:last-child) {
+    margin-bottom: spacing(4);
+
+    @include from(sm) {
+        margin-bottom: spacing(6);
+    }
+}
+
+    .people-accordion__section-heading {
+        @include upto(md) {
+            font-size: $font-size-xl;
+        }
+    }
+
+.people-accordion__person {
+    padding-top: spacing(1);
+    margin-bottom: spacing(1);
+    border-top: 1px solid;
+
+    @include from(sm) {
+        padding-top: spacing(2);
+        margin-bottom: spacing(2);
+    }
+
+    @include from(lg) {
+        padding-top: spacing(2.5);
+        margin-bottom: spacing(2.5);
+    }
+}
+
+.people-accordion__person-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    svg {
+        --size: #{spacing(3)};
+        flex: 0 0 auto;
+        display: block;
+        height: var(--size);
+        width: var(--size);
+
+        @include from(sm) {
+            --size: #{spacing(5)};
+        }
+    }
+
+    &:hover {
+        color: var(--accent-colour-medium);
+    }
+}
+
+.people-accordion__person-heading {
+    flex-grow: 1;
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    text-align: left;
+
+    @include from(sm) {
+        font-size: $font-size-xl;
+    }
+
+    @include from(lg) {
+        font-size: $font-size-2xl;
+    }
+
+    span {
+        font-weight: 400;
+
+        @include upto(md) {
+            display: block;
+            margin-top: spacing(.5);
+        }
+    }
+
+}
+
+.people-accordion__person-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: spacing(1);
+    padding-top: spacing(1);
+    width: 100%;
+    color: var(--dark-grey);
+    font-size: $font-size-sm;
+
+    @include from(md) {
+        padding-top: spacing(2);
+        grid-gap: grid-gap(md);
+        font-size: $font-size-base;
+    }
+
+    @include from(lg) {
+        padding-top: spacing(2.5);
+        grid-gap: grid-gap(lg);
+        font-size: $font-size-lg;
+    }
+}
+
+.people-accordion__person-image {
+    grid-column: span 3;
+
+    img {
+        object-fit: contain;
+        object-position: top left;
+        height: 100%;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 0;
+    }
+}
+
+.people-accordion__person-bio {
+    grid-column: span 9;
+}

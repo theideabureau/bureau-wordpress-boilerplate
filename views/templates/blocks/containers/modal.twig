@@ -1,0 +1,37 @@
+<div
+    class="modal"
+    id="{{ modal.id }}"
+    x-show="showModal"
+    x-init="$watch('showModal', isOpen => document.body.classList.toggle('prevent-scroll', isOpen == true))"
+>
+    <div class="modal__header">
+        <div class="container">
+            <div class="modal__header-inner">
+                <h1 class="modal__title">
+                    {{ title }}
+                </h1>
+                <button
+                    class="modal__close-button"
+                    type="button"
+                    aria-label="Close modal"
+                    @click="showModal = false"
+                >
+                    <svg class="modal__close-icon">
+                        <use xlink:href="#icon-close" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal__body">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="modal__footer">
+        {% block footer %}
+        {% endblock %}
+    </div>
+</div>

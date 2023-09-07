@@ -1,0 +1,58 @@
+<div class="people-accordion" data-block-spacing>
+
+    {% for section in block.sections %}
+        <div class="people-accordion__section">
+            <h2 class="people-accordion__section-heading">{{ section.section_name }}</h2>
+
+            {% for person in section.people %}
+                <div
+                    class="people-accordion__person"
+                    {% if block.preview == false %}
+                        x-data="{ open: false }"
+                    {% endif %}
+                >
+                    <button class="people-accordion__person-header" @click="open = !open">
+                        <h3 class="people-accordion__person-heading">{{ person.name }} <span>{{ person.position }}</span></h3>
+
+                        {% if block.preview == false %}
+                            <svg x-show="open" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="currentColor"/><path fill="#fff" d="M6.24 16.64v-2.08h18.72v2.08z"/></svg>
+                            <svg x-show="!open" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="currentColor"/><path fill="#fff" d="M14.93 6.4h2.13v19.2h-2.13z"/><path fill="#fff" d="M6.4 17.07v-2.13h19.2v2.13z"/></svg>
+                        {% endif %}
+                    </button>
+
+                    <div
+                        class="people-accordion__person-content"
+                        x-show="open"
+                        x-transition
+                    >
+                        {% if person.image.url %}
+                            <div class="people-accordion__person-image">
+                                {{ imgix({
+                                    src: person.image.url,
+                                    params: {
+                                        auto: 'format'
+                                    },
+                                    scrset_widths: [215, 430, 512, 1024, 1200, 1400, 1600, 1800],
+                                    sizes: '(min-width: 640px) 215px, 50vw'
+                                }) }}
+                            </div>
+                        {% endif %}
+
+                        <div class="people-accordion__person-bio">
+                            {{ person.bio }}
+
+                            {% if person.call_to_action %}
+                                {% include 'templates/blocks/button.twig' with {
+                                    'block': {
+                                        'has_arrow_icon': true,
+                                        'link': person.call_to_action
+                                    }
+                                } %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

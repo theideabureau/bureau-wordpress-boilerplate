@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container">
+        <div class="block-container">
+            {% if home.featured_post %}
+                {% include "templates/cards/article.twig" with { block: home.featured_post } %}
+            {% endif %}
+
+            <div class="articles-grid" data-block-spacing>
+                <div class="articles-grid__grid">
+                    {% for block in home.posts %}
+                        {% include "templates/cards/article.twig" with block %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="articles-grid__pagination">
+                {% if home.prev_page_url %}
+                    {% include 'templates/blocks/button.twig' with {
+                        'block': {
+                            'class': 'articles-grid__button',
+                            'hide_icon': true,
+                            'link': {
+                                'title': 'Previous page',
+                                'url': home.prev_page_url
+                            }
+                        }
+                    } %}
+                {% endif %}
+
+                {% if home.next_page_url %}
+                    {% include 'templates/blocks/button.twig' with {
+                        'block': {
+                            'class': 'articles-grid__button',
+                            'hide_icon': true,
+                            'link': {
+                                'title': 'Next page',
+                                'url': home.next_page_url
+                            }
+                        }
+                    } %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

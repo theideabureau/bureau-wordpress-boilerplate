@@ -1,0 +1,30 @@
+/*
+
+Atomic design is philosophically complimentary with these CSS approaches:
+
+* SMACSS by Jonathan Snook http://smacss.com/
+* OOCSS by Nicole Sullivan http://oocss.org/
+* BEM CSS Methology : http://bem.info/method/
+* CSS Guidelines by Harry Roberts : http://cssguidelin.es/
+
+Sass Globbing is used so an import utilising an asterisk (*) will use every
+partial in the specified directory .
+
+*/
+
+@use "sass:math";
+
+$is_gutenberg: true;
+
+// helpers must be imported in this order since we use functions in config
+@import "./function/*";
+@import "./mixin/*";
+@import "./config/*";
+
+// reset must be imported before other styles
+@import "./reset";
+
+@import "./base/*";
+@import "./modular/*";
+@import "./non-modular/*";
+@import "./vendor/*";

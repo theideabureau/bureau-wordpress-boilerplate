@@ -1,0 +1,35 @@
+.content-with-image {
+    --text-colour: var(--accent-colour-contrast, var(--white));
+
+    --icon-list-accent-colour: var(--text-colour);
+    --headings-accent-colour: var(--text-colour);
+
+    background: var(--accent-colour-medium, var(--brand-dark));
+    color: var(--text-colour);
+}
+
+.content-with-image__inner {
+    @include from(md) {
+        display: flex;
+        justify-content: space-between;
+        gap: spacing(4);
+
+        > * {
+            flex: 1 1 0;
+        }
+    }
+}
+
+
+.content-with-image__blocks {
+    padding: spacing(3) spacing(2);
+
+    @include from(md) {
+        padding: spacing(5) 0 spacing(5) spacing(5);
+    }
+
+    @include from(lg) {
+        padding: spacing(7) 0 spacing(7) spacing(9);
+        font-size: $font-size-lg;
+    }
+}

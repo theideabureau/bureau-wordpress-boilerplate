@@ -1,0 +1,38 @@
+#acf-group_630dbb0dd85ce > .acf-fields {
+    border-top: 1px solid #ddd;
+}
+
+.edit-post-visual-editor__post-title-wrapper {
+    border-bottom: 1px dashed #2D3D4D;
+    margin-bottom: 70px !important;
+    margin-top: 21px !important;
+}
+
+    .wp-block-post-title {
+        margin-block: 28px !important;
+    }
+
+/* icon grid, wysiwyg button hiding */
+.acf-field-64b8f20835a8d,
+.acf-field-62c43bedb2663 {
+    [aria-label*="Align centre"],
+    [aria-label*="Align left"],
+    [aria-label*="Align right"],
+    [aria-label*="Blockquote"],
+    [aria-label*="Bulleted list"],
+    [aria-label*="Fullscreen"],
+    [aria-label*="Numbered list"],
+    [aria-label*="Redo"],
+    [aria-label*="Strikethrough"],
+    [aria-label*="Undo"] {
+        display: none;
+    }
+}
+
+/* don't show the wysiwyg until an accent colour is set */
+body.post-type-page,
+body.post-type-service {
+    .wp-block-post-content:not([data-accent-colour]) {
+        display: none;
+    }
+}

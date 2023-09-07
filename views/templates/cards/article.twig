@@ -1,0 +1,49 @@
+<div
+    class="article-card"
+    data-is-dark="{{ block.is_dark ? 'true' : 'false' }}"
+    data-is-featured="{{ block.is_featured ? 'true' : 'false' }}"
+    data-block-spacing
+>
+    <div class="article-card__image-wrapper">
+        {% if block.image %}
+            {{ imgix({
+                class: 'article-card__image',
+                src: block.image.src,
+                alt: block.image.alt,
+                params: {
+                    auto: 'format'
+                },
+                scrset_widths: [368, 736, 1024, 1536, 2048, 2560, 3072],
+                sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1232px) 33vw, 368px'
+            }) }}
+        {% else %}
+            <img
+                class="article-card__image"
+                src="{{ theme.uri }}/resources/img/article/placeholder.jpg"
+            />
+        {% endif %}
+    </div>
+
+    <div class="article-card__data">
+        {% if block.is_featured %}
+            <span class="article-card__label / label">Featured Article</span>
+        {% endif %}
+
+        <a class="article-card__link" href="{{ block.url }}">
+            <h2 class="article-card__title">
+                {{ block.title }}
+            </h2>
+        </a>
+
+        <p class="article-card__lead">
+            {{ block.lead }}
+        </p>
+
+        <time
+            class="article-card__date"
+            datetime="{{ block.date.raw }}"
+        >
+            {{ block.date.formatted }}
+        </time>
+    </div>
+</div>

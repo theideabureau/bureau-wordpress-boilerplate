@@ -1,0 +1,179 @@
+:root {
+    // neutral colours
+    --white: #fff;
+    --grey: #737373;
+    --dark-grey: #342C2C;
+    --black: #000;
+
+    // brand colours
+    --brand-dark: #192869;
+    --brand-medium-dark: #27377A; // I don't know if this name makes sense but I found two more shades of blue in the designs
+    --brand-medium: #004F9F;
+    --brand-medium-light: #D8DFEA; // I don't know if this name makes sense but I found two more shades of blue in the designs
+    --brand-light: #EDF3F8;
+}
+
+[data-accent-colour]:not([data-accent-colour="inherit"]) {
+    // for debugging
+    @if (false) {
+        border: 3px dashed var(--accent-colour-primary);
+    }
+}
+
+/*
+    in the [data-accent-colour] selectors below, we:
+    1. specify the core colours
+    2. extend the %accent-colour-base-definitions to apply other default values
+    3. specify any colour specific overrides
+*/
+
+%accent-colour-base-definitions {
+    --accent-colour-primary: var(--accent-colour-medium);
+    --accent-colour-contrast: var(--white);
+    --content-panel-accent-colour: var(--brand-light);
+    --icon-card-accent-colour: var(--accent-colour-medium);
+}
+
+[data-accent-colour="brand"] {
+    --accent-colour-light: var(--brand-light);
+    --accent-colour-medium: var(--brand-medium);
+    --accent-colour-dark: var(--brand-dark);
+
+    @extend %accent-colour-base-definitions;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+    --icon-card-accent-colour: var(--accent-colour-dark);
+}
+
+[data-accent-colour="motor-services"] {
+    --accent-colour-light: #FBAB73;
+    --accent-colour-medium: #F97316;
+    --accent-colour-dark: #C75C12;
+
+    @extend %accent-colour-base-definitions;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+}
+
+[data-accent-colour="loss-adjusting"] {
+    --accent-colour-light: #6EC9F2;
+    --accent-colour-medium: #0EA5E9;
+    --accent-colour-dark: #0B84BA;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="validation"] {
+    --accent-colour-light: #7ADC9E;
+    --accent-colour-medium: #22C55E;
+    --accent-colour-dark: #1B9E4B;
+
+    @extend %accent-colour-base-definitions;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+}
+
+[data-accent-colour="surveying-and-project-management"] {
+    --accent-colour-light: #88DCC0;
+    --accent-colour-medium: #10B981;
+    --accent-colour-dark: #0D9467;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="24-7-services"] {
+    --accent-colour-light: #89B4FA;
+    --accent-colour-medium: #3B82F6;
+    --accent-colour-dark: #2F68C5;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="third-party-administration"],
+[data-accent-colour="park-home-and-leisure"] {
+    --accent-colour-light: #F9C56D;
+    --accent-colour-medium: #F59E0B;
+    --accent-colour-dark: #DD8E0A;
+
+    @extend %accent-colour-base-definitions;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+    --accent-colour-contrast: var(--dark-grey);
+}
+
+[data-accent-colour="subsidence"] {
+    --accent-colour-light: #B99DFA;
+    --accent-colour-medium: #8B5CF6;
+    --accent-colour-dark: #6F4AC5;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="underground-services"] {
+    --accent-colour-light: #EA7D7D;
+    --accent-colour-medium: #DC2626;
+    --accent-colour-dark: #B01E1E;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="repair-and-restoration"] {
+    --accent-colour-light: #F2D16B;
+    --accent-colour-medium: #EAB308;
+    --accent-colour-dark: #D3A107;
+
+    @extend %accent-colour-base-definitions;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+    --accent-colour-contrast: var(--dark-grey);
+}
+
+[data-accent-colour="investigation-services"] {
+    --accent-colour-light: #B1E5FD;
+    --accent-colour-medium: #7DD3FC;
+    --accent-colour-dark: #64A9CA;
+
+    @extend %accent-colour-base-definitions;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+    --accent-colour-contrast: var(--dark-grey);
+}
+
+[data-accent-colour="data-analytics"] {
+    --accent-colour-light: #A1A3F7;
+    --accent-colour-medium: #6366F1;
+    --accent-colour-dark: #4F52C1;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="technology-and-saas"] {
+    --accent-colour-light: #898BB9;
+    --accent-colour-medium: #3A3E8A;
+    --accent-colour-dark: #2E326E;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="synergy-cloud"] {
+    --accent-colour-dark: #3A3E8A;
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="weathernet"] {
+    --accent-colour-light: #e5d6fc;
+    --accent-colour-medium: #844CDD;
+    --accent-colour-dark: #844CDD; // it only has to shades (?)
+
+    @extend %accent-colour-base-definitions;
+}
+
+[data-accent-colour="sustainability"] {
+    --accent-colour-light: #DDE6E4;
+    --accent-colour-medium: #95BD5F;
+    --accent-colour-dark: #527431;
+
+    --accent-colour-primary: var(--accent-colour-dark);
+    @extend %accent-colour-base-definitions;
+}

@@ -1,0 +1,10 @@
+{
+    "name": "project-name/button",
+    "title": "Button",
+    "category": "project-name-blocks",
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page", "service"],
+        "renderTemplate": "render.php"
+    }
+}

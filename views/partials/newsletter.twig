@@ -1,0 +1,14 @@
+<div class="newsletter" data-color="{{ block.color }}">
+    <h2 class="visually-hidden">Newsletter</h2>
+        <p class="newsletter__title">{{ block.title }}</p>
+        <div class="newsletter__form">
+            {% include 'templates/blocks/input-with-button.twig' with {
+                'block': {
+                    'color': block.color,
+                    'cta': block.cta,
+                    'input': block.input,
+                    'is_stacked': block.is_small
+                }
+            } %}
+        </div>
+</div>

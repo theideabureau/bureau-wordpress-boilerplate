@@ -1,0 +1,15 @@
+.single-post.container {
+    padding-bottom: spacing(4);
+
+    @include from(md) {
+        padding-bottom: spacing(8);
+    }
+
+    @include from(lg) {
+        padding-bottom: spacing(12);
+    }
+}
+
+.single-post__title {
+    font-weight: 600;
+}

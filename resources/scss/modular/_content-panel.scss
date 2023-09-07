@@ -1,0 +1,97 @@
+.content-panel {
+    @extend %negative-container-wide;
+
+    position: relative;
+    overflow: hidden;
+    padding: spacing(4) 0;
+
+    &::before {
+        @include absolute-cover;
+
+        content: "";
+        background: var(--accent-colour-medium, var(--brand-light));
+        opacity: 0.2;
+    }
+
+    @include from(md) {
+        padding: spacing(8) 0;
+    }
+
+    @include from(lg) {
+        padding: spacing(12) 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        max-width: 40ch;
+    }
+
+    p {
+        max-width: 70ch;
+    }
+}
+
+.content-panel[data-center-text="true"] {
+    text-align: center;
+
+    h1, h2, h3, h4, h5, h6, p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.content-panel[data-is-dark="true"] {
+    --icon-list-accent-colour: var(--white);
+    --headings-accent-colour: var(--white);
+
+    color: var(--white);
+
+    &::before {
+        background: var(--brand-medium-dark);
+        opacity: 1;
+
+        @include upto(lg) {
+            background: var(--brand-dark);
+        }
+    }
+
+    .content-panel__decor {
+        position: absolute;
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        color: var(--brand-dark);
+
+        @include upto(lg) {
+            display: none;
+        }
+    }
+}
+
+.content-panel[data-is-transparent="true"] {
+    --content-panel-accent-colour: var(--white);
+
+    &::before {
+        opacity: 0;
+    }
+}
+
+
+.content-panel__decor {
+    position: absolute;
+    top: spacing(2) * -1;
+    right: 0;
+    width: 100%;
+    max-width: 880px;
+    aspect-ratio: 7 / 3;
+    color: var(--content-panel-accent-colour, var(--brand-light));
+
+    @include from(md) {
+        right: auto;
+        left: 46%;
+    }
+}

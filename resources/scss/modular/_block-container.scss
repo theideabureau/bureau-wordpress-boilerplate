@@ -1,0 +1,81 @@
+%block-margin-value {
+    --margin-value:
+        var(--block-margin-override,
+            max(
+                var(--block-margin-min, 1rem),
+                calc(
+                    var(--block-margin, 2rem)
+                    * var(--block-margin-multiplier, 1)
+                )
+            )
+        );
+
+    @include from(md) {
+        --block-margin: #{px-to-rem(56px)};
+    }
+
+    @include from(lg) {
+        --block-margin: #{px-to-rem(96px)};
+    }
+}
+
+.block-container {
+    &[data-block-gap="tiny"] > [data-block-spacing] {
+        --block-margin-multiplier: .25;
+    }
+
+    &[data-block-gap="small"] > [data-block-spacing] {
+        --block-margin-multiplier: .5;
+    }
+
+    &[data-block-gap="medium"] > [data-block-spacing] {
+        --block-margin-multiplier: .75;
+    }
+
+    > [data-block-spacing],
+    > .trustpilot-widget {
+        @extend %block-margin-value;
+
+        &:not(:first-child) {
+            margin-top: var(--margin-value);
+        }
+
+        margin-block: var(--margin-value);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: var(--block-last-child-override, var(--margin-value));
+        }
+
+        &[data-block-spacing="none"],
+        &.no-margin {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        @include from(md) {
+            --block-margin: #{px-to-rem(48px)};
+        }
+
+        @include from(lg) {
+            --block-margin: #{px-to-rem(96px)};
+        }
+    }
+
+    > :last-child:not([data-block-spacing]) {
+        @extend %block-margin-value;
+
+        margin-bottom: var(--block-last-child-override, var(--margin-value));
+
+        @include from(md) {
+            --block-margin: #{px-to-rem(48px)};
+        }
+
+        @include from(lg) {
+            --block-margin: #{px-to-rem(96px)};
+        }
+    }
+}

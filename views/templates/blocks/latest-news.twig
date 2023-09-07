@@ -1,0 +1,37 @@
+<div
+    class="content-panel"
+    data-is-dark="true"
+    data-block-spacing="none"
+>
+    <div class="latest-news">
+        <div class="content-panel__decor">
+            <svg><use xlink:href="#content-panel-decor-dark" /></svg>
+        </div>
+        <div class="container">
+            <div class="latest-news__header">
+                <h2 class="latest-news__heading">Latest News</h2>
+
+                {% include 'templates/blocks/button.twig' with {
+                    'block': {
+                        'class': 'latest-news__button',
+                        'has_arrow_icon': true,
+                        'is_light': true,
+                        'link': {
+                            'title': 'View All News',
+                            'url': '/latest-news/'
+                        }
+                    }
+                } %}
+            </div>
+
+            <div class="latest-news__posts">
+                {% for post in block.posts %}
+                    {% include 'templates/cards/article.twig' with {
+                        'block': post
+                    } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+

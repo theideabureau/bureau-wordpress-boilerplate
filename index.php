@@ -1,13 +1,32 @@
-<?php // index.php ?>
+<?php
 
-<?php get_header(); ?>
+/**
+ * The main template file
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists
+ */
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+namespace App;
 
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		<?php the_content(); ?>
+class IndexController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $page = new Page();
 
-	<?php endwhile; ?>
+        the_post();
 
-<?php get_footer(); ?>
+        $context['page']['content'] = $page->content;
+
+        return new TimberResponse('templates/generic-page.twig', $context);
+    }
+}

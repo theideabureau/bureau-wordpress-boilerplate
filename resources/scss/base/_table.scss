@@ -1,0 +1,18 @@
+
+table,
+.wp-block-table {
+    td,
+    th {
+        border-color: var(--brand-dark);
+    }
+
+    thead {
+        border-bottom: 0;
+    }
+
+    th {
+        background-color: var(--brand-dark);
+        color: var(--white);
+        text-align: left;
+    }
+}

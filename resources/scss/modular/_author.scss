@@ -1,0 +1,22 @@
+$author-image-size: spacing(5);
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: spacing(1);
+    font-size: $font-size-sm;
+    line-height: $leading-snug;
+}
+
+.author__image {
+    @include avatar($author-image-size);
+}
+
+.author__name {
+    font-weight: 600;
+}
+
+.author__description {
+    color: var(--grey);
+    font-weight: 400;
+}

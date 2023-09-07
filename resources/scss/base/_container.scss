@@ -1,0 +1,54 @@
+$container-outer-width: ($container-inner-width + (2 * $container-gutter));
+
+%container {
+    max-width: $container-inner-width;
+    position: relative;
+    margin-inline: grid-gap('base');
+
+    @include from('md') {
+        margin-inline: grid-gap('md');
+    }
+
+    @include from('lg') {
+        margin-inline: grid-gap('lg');
+    }
+
+    @media (min-width: $container-outer-width) {
+        margin-inline: auto;
+    }
+}
+
+%negative-container {
+    margin-inline: grid-gap('base') * -1;
+
+    @include from('md') {
+        margin-inline: grid-gap('md') * -1;
+    }
+
+    @include from('lg') {
+        margin-inline: grid-gap('lg') * -1;
+    }
+
+    @media (min-width: $container-outer-width) {
+        margin-inline: auto;
+    }
+}
+
+%negative-container-wide {
+    @extend %negative-container;
+
+    @media (min-width: $container-outer-width) {
+        margin-inline: calc((((100vw - $container-outer-width) / 2) + $container-gutter) * -1);
+    }
+}
+
+.container {
+    @extend %container;
+}
+
+.content-container {
+    @extend %container;
+    @extend %block-margin-value;
+
+    margin-bottom: var(--margin-value);
+}

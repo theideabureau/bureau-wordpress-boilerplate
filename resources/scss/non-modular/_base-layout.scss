@@ -1,0 +1,31 @@
+.base-layout {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow-x: clip;
+}
+
+.base-layout__main {
+    flex-grow: 1;
+    padding-top: calc(var(--site-header-height) + var(--site-header-offset) + var(--main-top-padding));
+
+    @include from("lg") {
+        padding-top: var(--main-top-padding);
+    }
+}
+
+.base-layout__decor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    aspect-ratio: 895 / 402;
+    max-width: 895px;
+    color: rgba(255, 255, 255, 0.70);
+    transform: translateX(10%);
+
+    @include from(lg) {
+        transform: translateX(2%);
+    }
+}
