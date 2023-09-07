@@ -8,7 +8,11 @@ use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 
 class Lumberjack extends LumberjackCore
 {
-    public function addToContext($context)
+    /**
+     * @param array<string, mixed> $context
+     * @return array<string, mixed>
+     */
+    public function addToContext($context): array
     {
         $context['environment'] = Config::get('app.environment');
 
@@ -30,7 +34,10 @@ class Lumberjack extends LumberjackCore
         return $context;
     }
 
-    public function addFurnitureContext(&$context)
+    /**
+     * @param array<string, mixed> $context
+     */
+    public function addFurnitureContext(&$context): void
     {
         $context['footer'] = [
             'menu' => new \Timber\Menu('footer-nav'),
@@ -49,7 +56,8 @@ class Lumberjack extends LumberjackCore
                 }
 
                 return $item;
-            });
+            })
+            ->toArray();
 
         $context['social'] = [
             'facebook' =>  get_field('social__facebook_url', 'options'),

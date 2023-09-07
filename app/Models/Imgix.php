@@ -9,6 +9,10 @@ use Timber\Timber;
 class Imgix
 {
     protected object $args;
+
+    /**
+     * @var array<string>
+     */
     protected array $debugColours = [
         'BFDC2626',
         'BFEA580C',
@@ -19,6 +23,9 @@ class Imgix
         'BFEC4899',
     ];
 
+    /**
+     * @param array<string, mixed> $args
+     */
     public function __construct(array $args)
     {
         $this->args = (object) array_merge([
@@ -32,7 +39,7 @@ class Imgix
 
     public function render(): string
     {
-        return Timber::compile('partials/imgix.twig', [
+        $output = Timber::compile('partials/imgix.twig', [
             'src' => $this->buildURL(0),
             'srcset' => $this->buildSources(),
             'class' => $this->args->class,
@@ -42,6 +49,8 @@ class Imgix
             'height' => $this->args->aspect_ratio[1] ?? null,
             'loading' => $this->args->loading
         ]);
+
+        return $output ?: '';
     }
 
     protected function buildSources(): string
@@ -57,7 +66,7 @@ class Imgix
             ->join(', ');
     }
 
-    protected function buildURL($widthIndex)
+    protected function buildURL(int $widthIndex): string
     {
         $width = $this->args->scrset_widths[$widthIndex];
 
@@ -89,7 +98,7 @@ class Imgix
         return $url;
     }
 
-    protected function debugMask($widthIndex): string
+    protected function debugMask(int $widthIndex): string
     {
         $builder = new UrlBuilder(Config::get('images.imgix_host'));
         $debugColourIndex = $widthIndex % count($this->debugColours);

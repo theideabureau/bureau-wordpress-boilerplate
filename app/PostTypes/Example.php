@@ -23,9 +23,9 @@ class Example extends Post
      * Second parameter of the `register_post_type` function:
      * https://codex.wordpress.org/Function_Reference/register_post_type
      *
-     * @return array|null
+     * @return array<string, mixed>
      */
-    protected static function getPostTypeConfig()
+    protected static function getPostTypeConfig(): array
     {
         return [
             'has_archive' => true,

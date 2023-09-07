@@ -1,0 +1,7 @@
+parameters:
+    level: 5
+    paths:
+        - app
+    ignoreErrors:
+        - '#Function get_field not found.#'
+        - '#Call to an undefined static method Rareloop\\Lumberjack\\Facades\\(.+)#'

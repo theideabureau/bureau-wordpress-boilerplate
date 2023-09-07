@@ -9,14 +9,14 @@ class GutenbergServiceProvider extends ServiceProvider
     /**
      * Register any app specific items into the container
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         // supports
         add_action('after_setup_theme', [$this, 'addSupports'], 5);
@@ -31,17 +31,17 @@ class GutenbergServiceProvider extends ServiceProvider
         add_action('init', [$this, 'loadPatterns'], 5);
     }
 
-    public function addSupports()
+    public function addSupports(): void
     {
         add_theme_support('align-wide');
     }
 
-    public function disableCorePatterns()
+    public function disableCorePatterns(): void
     {
         remove_theme_support('core-block-patterns');
     }
 
-    public function registerBlockCategories()
+    public function registerBlockCategories(): void
     {
         add_filter('block_categories_all', function ($categories, $post) {
             return array_merge($categories, [
@@ -53,14 +53,14 @@ class GutenbergServiceProvider extends ServiceProvider
         }, 10, 2);
     }
 
-    public function registerPatternCategories()
+    public function registerPatternCategories(): void
     {
         register_block_pattern_category('project-name-patterns', [
             'label' => 'Project Name', // TODO: update label
         ]);
     }
 
-    public static function loadBlocks()
+    public static function loadBlocks(): void
     {
         $blocks = glob(__DIR__ . '/../../blocks/**/block.json');
         $logoSvg = file_get_contents(get_template_directory() . '/resources/img/logo-mark.svg');
@@ -72,7 +72,7 @@ class GutenbergServiceProvider extends ServiceProvider
         }
     }
 
-    public static function loadPatterns()
+    public static function loadPatterns(): void
     {
         $patterns = glob(__DIR__ . '/../../block-patterns/*.json');
 

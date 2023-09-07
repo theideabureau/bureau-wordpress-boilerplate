@@ -10,14 +10,14 @@ class ImgixServiceProvider extends ServiceProvider
     /**
      * Register any app specific items into the container
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_filter('timber/twig', function (\Twig\Environment $twig) {
             $twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
@@ -25,7 +25,10 @@ class ImgixServiceProvider extends ServiceProvider
         });
     }
 
-    public function render($args)
+    /**
+     * @param array<string, mixed> $args
+     */
+    public function render(array $args): string
     {
         return (new Imgix($args))->render();
     }

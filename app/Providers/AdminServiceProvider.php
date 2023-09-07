@@ -10,14 +10,14 @@ class AdminServiceProvider extends ServiceProvider
     /**
      * Register any app specific items into the container
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         $this->setOptionsPages();
         $this->outputAdminIcons();
@@ -27,7 +27,7 @@ class AdminServiceProvider extends ServiceProvider
         add_theme_support('responsive-embeds');
     }
 
-    public function enqueueAssets()
+    public function enqueueAssets(): void
     {
         add_action('after_setup_theme', function () {
             // Add support for editor styles.
@@ -44,7 +44,7 @@ class AdminServiceProvider extends ServiceProvider
         });
     }
 
-    public function outputAdminIcons()
+    public function outputAdminIcons(): void
     {
         add_action('admin_head', function () {
             $context = Timber::context();
@@ -52,7 +52,7 @@ class AdminServiceProvider extends ServiceProvider
         });
     }
 
-    public function setOptionsPages()
+    public function setOptionsPages(): void
     {
         if (function_exists('acf_add_options_page') && function_exists('acf_add_options_sub_page')) {
             // add parent

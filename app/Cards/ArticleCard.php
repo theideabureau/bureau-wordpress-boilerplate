@@ -2,9 +2,12 @@
 
 namespace App\Cards;
 
-class ArticleCard extends Base
+class ArticleCard extends BaseCard
 {
-    public static function convertTimberPost($post, $isFeatured = false, $isDark = false)
+    /**
+     * @return array<string, mixed>
+     */
+    public static function convertTimberPost($post, bool $isFeatured = false, bool $isDark = false): array
     {
         $excerptLength = $isFeatured ? 30 : 15;
 

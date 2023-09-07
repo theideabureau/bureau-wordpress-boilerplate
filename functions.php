@@ -15,6 +15,10 @@ $app = require_once('bootstrap/app.php');
 $lumberjack = $app->make(Lumberjack::class);
 $lumberjack->bootstrap();
 
+if (! function_exists('get_field')) {
+    return;
+}
+
 // Import our routes file
 require_once('routes.php');
 

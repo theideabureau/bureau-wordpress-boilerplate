@@ -11,14 +11,14 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any app specific items into the container
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         $this->enqueueAssets();
         $this->removeCommentMenuItems();
@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $this->adjustSearchURL();
     }
 
-    protected function enqueueAssets()
+    protected function enqueueAssets(): void
     {
         add_action('wp_enqueue_scripts', function () {
             // EXTRACTED ASSETS
@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
-    protected function adjustSearchURL()
+    protected function adjustSearchURL(): void
     {
         add_action('template_redirect', function () {
             if (is_search() && ! empty($_GET['s'])) {
@@ -56,13 +56,15 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
-    protected function extendPostClass()
+    protected function extendPostClass(): void
     {
         Post::macro('primaryTerm', function ($taxonomy) {
+            // @phpstan-ignore-next-line
             $terms = collect($this->terms($taxonomy));
             $termID = null;
 
             if (class_exists('WPSEO_Primary_Term')) {
+                // @phpstan-ignore-next-line
                 $primaryTerm = new \WPSEO_Primary_Term($taxonomy, $this->id);
 
                 if ($primaryTerm->get_primary_term() >= 0) {
@@ -78,7 +80,7 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
-    public function removeCommentMenuItems()
+    public function removeCommentMenuItems(): void
     {
         // removes from admin menu
         add_action('admin_menu', function () {
