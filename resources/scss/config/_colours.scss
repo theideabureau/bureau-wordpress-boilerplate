@@ -6,11 +6,11 @@
     --black: #000;
 
     // brand colours
-    --brand-dark: #192869;
-    --brand-medium-dark: #27377A; // I don't know if this name makes sense but I found two more shades of blue in the designs
-    --brand-medium: #004F9F;
-    --brand-medium-light: #D8DFEA; // I don't know if this name makes sense but I found two more shades of blue in the designs
-    --brand-light: #EDF3F8;
+    --brand-dark: #727272;
+    --brand-medium-dark: #181818;
+    --brand-medium: #7c7c7c;
+    --brand-medium-light: #b6b6b6;
+    --brand-light: #ffffff;
 }
 
 [data-accent-colour]:not([data-accent-colour="inherit"]) {

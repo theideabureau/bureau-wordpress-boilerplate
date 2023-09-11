@@ -11,7 +11,7 @@
 
 ## Template Tasks
 
-* [ ] Add deloyment status badges to `README.md`
+* [ ] Add deployment status badges and environment URLs to `README.md`
 * [ ] Add project details to `README.md`
 * [ ] Add version number to `README.md`
 * [ ] Add project details to `package.json`
@@ -19,6 +19,8 @@
 * [ ] Find and replace all instances of 'project-name'
 * [ ] Find and replace all instances of 'Project Name'
 * [ ] Find and replace all instances of 'theme-name'
+* [ ] Replace `resources/img/logo-mark.svg` with project logo
+* [ ] Replace all favicons and configurations in `resources/img/favicons/`
 
 ## Project dependencies
 

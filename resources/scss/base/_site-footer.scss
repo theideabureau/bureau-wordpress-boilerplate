@@ -1,7 +1,3 @@
-$site-footer-logo-width: px-to-rem(140px);
-$site-footer-logo-height: px-to-rem(45px);
-$site-footer-row-gap: spacing(3);
-
 .site-footer {
     @extend %negative-container-wide;
 
@@ -45,9 +41,13 @@ $site-footer-row-gap: spacing(3);
 }
 
 .site-footer__logo {
-    display: inline-block;
-    width: $site-footer-logo-width;
-    height: $site-footer-logo-height;
+    display: inline-flex;
+    height: 50px;
+    justify-items: start;
+
+    svg {
+        width: auto;
+    }
 }
 
 .site-footer__tagline {

@@ -1,14 +1,8 @@
-$site-header-logo-width: px-to-rem(130px);
-$site-header-logo-width-tablet: px-to-rem(150px);
-$site-header-logo-width-desktop: px-to-rem(170px);
-
 $site-header-offset: 1rem;
 
 .site-header {
     --bg-color: var(--white);
     --text-color: var(--brand-dark);
-
-    --logo-width: #{$site-header-logo-width};
 
     position: fixed;
     top: calc(var(--admin-bar-height) + var(--site-header-offset));
@@ -24,8 +18,6 @@ $site-header-offset: 1rem;
     font-weight: 400;
 
     @include from(md) {
-        --logo-width: #{$site-header-logo-width-tablet};
-
         font-size: $font-size-lg;
     }
 
@@ -40,8 +32,6 @@ $site-header-offset: 1rem;
     }
 
     @include from(xl) {
-        --logo-width: #{$site-header-logo-width-desktop};
-
         font-size: $font-size-base;
     }
 }
@@ -59,8 +49,7 @@ $site-header-offset: 1rem;
 }
 
 .site-header__logo {
-    width: var(--logo-width);
-    height: 100%;
+    height: 50px;
 
     img {
         width: 100%;
