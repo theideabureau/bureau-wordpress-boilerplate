@@ -14,6 +14,7 @@ class Item extends TimberMenuItem
         parent::__construct($data);
 
         // Add a modifier class if the item is the current page
+        // @phpstan-ignore-next-line
         if ($data->current) {
             $this->add_class($this->listItemClass . '--current');
         }

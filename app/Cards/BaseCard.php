@@ -22,6 +22,7 @@ class BaseCard
         }
 
         if (is_object($post) && ( get_class($post) === 'Timber\Post' || is_subclass_of($post, 'Timber\Post') )) {
+            // @phpstan-ignore-next-line
             return static::convertTimberPost($post);
         }
 
