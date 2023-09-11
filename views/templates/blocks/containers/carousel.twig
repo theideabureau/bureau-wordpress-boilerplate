@@ -1,0 +1,16 @@
+<div class="carousel glide" data-carousel>
+    <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+            {% block slides %}
+            {% endblock %}
+        </ul>
+    </div>
+    <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--bg glide__arrow--left" data-glide-dir="&lt;">
+            <svg><use xlink:href="#icon-chevron-left"></use></svg>
+        </button>
+        <button class="glide__arrow glide__arrow--bg glide__arrow--right" data-glide-dir="&gt;">
+            <svg><use xlink:href="#icon-chevron-right"></use></svg>
+        </button>
+    </div>
+</div>

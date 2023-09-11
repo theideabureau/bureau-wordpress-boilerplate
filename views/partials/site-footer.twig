@@ -1,0 +1,62 @@
+{% include 'templates/blocks/logo-grid.twig' with {
+    'block': footer.icon_grid
+} %}
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__inner">
+            <div class="site-footer__about">
+                <a href="/" class="site-footer__logo" aria-label="Go to homepage">
+                    <svg><use xlink:href="#logo-mono" /></svg>
+                </a>
+                {% if footer.strapline %}
+                    <p class="site-footer__tagline">{{ footer.strapline }}</p>
+                {% endif %}
+            </div>
+
+            <nav class="site-footer__nav">
+                <ul class="site-footer__nav-links">
+                    {% for item in footer.menu.items %}
+                    <li class="site-footer__nav-item">
+                        <a
+                            href="{{ item.url }}"
+                            target="{{ item.target }}"
+                            class="site-footer__link{{
+                                item.current ? ' -is-active' : ''
+                            }}"
+                        >
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <div class="site-footer__social">
+                {% include 'partials/social.twig' with {
+                    social: {
+                        facebook: social.facebook,
+                        twitter: social.twitter,
+                        linkedin: social.linkedin,
+                    }
+                } %}
+            </div>
+
+            <div class="site-footer__copyright">
+                <p>
+                    <span>&copy; Project Name</span>
+                </p>
+
+                <p>
+                    Designed &amp; Built by
+                    <a
+                        href="http://theideabureau.co/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >The Idea Bureau</a
+                    >
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="search-grid">
+            <div class="search-grid__header">
+                <h1>Search</h1>
+            </div>
+
+            <div class="search-grid__form">
+                <form class="search__form" action="/">
+                    <input type="search" name="s" placeholder="Type something" class="input--has-border" value="{{ search.query }}" />
+                </form>
+            </div>
+
+            <div class="search-grid__popular_resource">
+                {% include 'templates/search/_popular-resources.twig' with {
+                    'resources': search.popular_resources
+                } %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

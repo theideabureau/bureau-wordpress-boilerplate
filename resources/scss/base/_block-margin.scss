@@ -1,0 +1,44 @@
+.block-margin--sm,
+%block-margin--sm,
+[data-block-margin="sm"] {
+    margin: spacing(1) 0;
+
+    @include from(md) {
+        margin: spacing(2) 0;
+    }
+}
+
+.block-margin--md,
+%block-margin--md,
+[data-block-margin="md"] {
+    margin: spacing(3) 0;
+
+    @include from(md) {
+        margin: spacing(4) 0;
+    }
+}
+
+.block-margin--lg,
+%block-margin--lg,
+[data-block-margin="lg"] {
+    margin: spacing(4) 0;
+
+    @include from(md) {
+        margin: spacing(7) 0;
+    }
+}
+
+[data-block-margin],
+[class^='block-margin'] {
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// .no-margin {
+//     margin: 0 !important;
+// }

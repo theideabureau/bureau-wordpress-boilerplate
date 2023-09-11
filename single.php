@@ -1,14 +1,26 @@
-<?php // single.php ?>
+<?php
 
-<?php get_header(); ?>
+/**
+ * The Template for displaying all single posts
+ */
 
-	<?php
+namespace App;
 
-		// fetch the content specific template
-		// NOTE: if one can't be found (e.g. for normal articles) content.php is used
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		get_template_part('partials/content', get_post_format());
+class SingleController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
 
-	?>
+        $post = new Post();
 
-<?php get_footer(); ?>
+        $context['single']['post'] = $post;
+
+        return new TimberResponse('templates/single.twig', $context);
+    }
+}

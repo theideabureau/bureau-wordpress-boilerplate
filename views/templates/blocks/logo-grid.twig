@@ -1,0 +1,25 @@
+<div
+    class="logo-grid"
+    data-is-inner-block="{{ block.is_inner_block ? 'true' : 'false' }}"
+    data-block-spacing="{{ block.is_inner_block ? '' : 'none' }}"
+>
+    <div class="container">
+        <ul class="logo-grid__list">
+            {% for logo in block.logos %}
+                <li class="logo-grid__item">
+                    {{ imgix({
+                        class: "logo-grid__image",
+                        src: logo.logo.url,
+                        alt: logo.logo.alt,
+                        params: {
+                            auto: 'format'
+                        },
+                        loading: "lazy",
+                        scrset_widths: [168, 336, 504],
+                        sizes: '(max-width: 424px) 50vw, (max-width: 1024px) 33vw, (max-width: 1232px) 16vw, 168px',
+                    }) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

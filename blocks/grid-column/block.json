@@ -1,0 +1,14 @@
+{
+    "name": "project-name/grid-column",
+    "title": "Grid Column",
+    "category": "project-name-blocks",
+    "supports": {
+        "align": false,
+        "jsx": true
+    },
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page", "service"],
+        "renderTemplate": "render.php"
+    }
+}

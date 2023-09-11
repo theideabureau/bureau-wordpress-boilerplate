@@ -1,0 +1,32 @@
+.alert {
+    background-color: var(--accent-colour-primary, var(--brand-dark));
+    color: var(--white);
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius;
+    padding: spacing(1.2) spacing(3);
+
+    @include upto(md) {
+        font-size: $font-size-sm;
+    }
+
+    // block alignment
+    &[data-align="center"] {
+        @include from(md) {
+            max-width: 66%;
+            margin-inline: auto;
+        }
+    }
+
+    // text alignment
+    &[data-align-text="left"] {
+        text-align: left;
+    }
+
+    &[data-align-text="center"] {
+        text-align: center;
+    }
+
+    &[data-align-text="right"] {
+        text-align: right;
+    }
+}

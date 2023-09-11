@@ -1,0 +1,11 @@
+<div class="double-cta">
+    {% for card in block.cards %}
+        {% set card = card|merge({'is_primary': loop.first}) %}
+
+        <div class="double-cta__card">
+            {% include 'templates/blocks/cta-card.twig' with {
+                block: card
+            } %}
+        </div>
+    {% endfor %}
+</div>

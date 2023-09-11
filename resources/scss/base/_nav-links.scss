@@ -1,0 +1,132 @@
+$nav-link-arrow-size: 0.75em;
+
+.nav-links {
+    text-align: center;
+
+    @include from(lg) {
+        display: flex;
+    }
+}
+
+.nav-links__item {
+    margin-bottom: spacing(1.5);
+    white-space: nowrap;
+
+    @include from(lg) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: spacing(1);
+        margin-bottom: 0;
+        margin-right: spacing(3);
+        font-weight: $font-weight-regular;
+
+        &:hover {
+            text-decoration: underline;
+
+            .nav-links__child-links {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .nav-links__arrow {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.nav-links__link {
+    @extend %nav-link;
+
+    display: inline-flex;
+    align-items: center;
+    gap: spacing(1);
+
+    &[data-child-menu-open="true"] {
+        .nav-links__arrow {
+            transform: rotate(180deg);
+        }
+    }
+
+    @include from(lg) {
+        z-index: 1;
+    }
+}
+
+.nav-links__arrow {
+    width: $nav-link-arrow-size;
+    height: $nav-link-arrow-size;
+    transform-origin: center;
+    transition: 0.3s ease;
+}
+
+.nav-links__child-links {
+    $offset-left: 120px;
+
+    @include from(lg) {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left:  $offset-left * -1;
+        width: px-to-rem(760px);
+        padding: spacing(3);
+        border-radius: $border-radius;
+        box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.08);
+        background: var(--brand-light);
+        color: var(--black);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: transform 0.3s ease-in-out;
+
+         // arrow up
+        &::before {
+            content: "";
+            position: absolute;
+            left: calc(#{$offset-left} + 1.5em); // not really resposnsive but I don't have a better idea
+            bottom: 100%;
+            z-index: 1;
+            width: 0; 
+            height: 0; 
+            border-left: spacing(1) solid transparent;
+            border-right: spacing(1) solid transparent;
+            border-bottom: spacing(1) solid var(--brand-light);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+            height: spacing(1);
+        }
+    }
+}
+
+.nav-links__view-all {
+    display: flex;
+    align-items: center;
+    gap: spacing(1);
+    margin-top: spacing(2);
+    color: var(--brand-dark);
+    font-weight: 600;
+    font-size: $font-size-sm;
+
+    svg {
+        width: .75em;
+        aspect-ratio: 1 / 1;
+        transition: .3s ease-in-out;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+
+            svg {
+                transform: translateX(.2em);
+            }
+        }
+    }
+}

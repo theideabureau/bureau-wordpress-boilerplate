@@ -1,0 +1,11 @@
+@function get-color($base, $shade: medium) {
+//   $color: map-get(map-get($colors, $base), $shade);
+
+//   @if ($color) {
+//     @return $color;
+//   }
+
+//   @warn #{'Color "' + $base + " " + $shade '" not found in $colors'};
+
+  @return null;
+}

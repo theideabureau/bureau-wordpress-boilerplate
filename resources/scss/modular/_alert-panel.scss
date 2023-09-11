@@ -1,0 +1,26 @@
+.alert-panel {
+    --background-colour: var(--white);
+    --spacing: #{spacing(4)};
+
+    // font-size: $text-base;
+    background-color: var(--background-colour);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing);
+    border-radius: 8px;
+
+    @include from(sm) {
+        --spacing: #{spacing(6)};
+    }
+}
+
+    .alert-panel > :last-child {
+        margin-bottom: 0;
+    }
+
+    .alert-panel__icon {
+        margin-bottom: calc(var(--spacing) / 2);
+        width: spacing(7);
+    }

@@ -1,0 +1,133 @@
+body {
+    font-family: $font-family;
+	font-weight: $font-weight-regular;
+    line-height: $body-leading;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--headings-accent-colour, var(--accent-colour-primary));
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.has-text-align-center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+p {
+    margin: 1em 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// heading sizes
+// you can style heading by html tag (h1), class (.h1) or data attribute (data-h-size="h1")
+@each $type, $info in $headings {
+    $font-size: map_get($info, font-size);
+    $custom-font-weight: map_get($info, font-weight);
+    $custom-leading: map_get($info, leading);
+    $custom-margin: map_get($info, margin-bottom);
+
+    #{$type},
+    .#{$type},
+    %#{$type},
+    [data-h-size="#{$type}"] {
+        $font-weight: 700;
+        $line-height: $headings-leading;
+        $margin-bottom: .5em;
+
+        @if $custom-font-weight {
+            $font-weight: $custom-font-weight;
+        }
+
+        @if $custom-leading {
+            $line-height: $custom-leading;
+        }
+
+        @if $custom-margin {
+            $margin-bottom: $custom-margin;
+        }
+
+        font-size: $font-size;
+        font-weight: $font-weight;
+        line-height: $line-height;
+        margin-bottom: $margin-bottom;
+    }
+}
+
+// body sizes
+// you can style heading by class (.body-lg) or data attribute (data-body-size="lg")
+@each $type, $info in $body-text {
+    $font-size: map_get($info, font-size);
+    $custom-leading: map_get($info, leading);
+
+    .body-#{$type},
+    %body-#{$type},
+    [data-body-size="#{$type}"] {
+        font-size: $font-size;
+
+        @if $custom-leading {
+            line-height: $custom-leading;
+        }
+    }
+}
+
+  // to avoid text overflows
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+b, strong {
+    font-weight: $font-weight-bold;
+}
+
+a {
+    color: currentColor;
+}
+
+a[class] {
+    text-decoration: none;
+}
+
+
+ul:not([class]),
+ul:not([class]) {
+    margin-bottom: 1em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+%nav-link {
+    position: relative;
+    white-space: nowrap;
+
+    &.current-menu-item,
+    &.current-menu-ancestor,
+    &.current-menu-item-ancestor,
+    &.current-page-ancestor,
+    body.single-post &.current_page_parent,
+    &.-is-active {
+        text-decoration: underline;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

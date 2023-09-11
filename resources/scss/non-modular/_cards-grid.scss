@@ -1,0 +1,23 @@
+.cards-grid {
+    @extend %grid;
+
+    grid-template-columns: 1fr;
+    list-style-type: none;
+    padding: 0;
+
+    @include from(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.cards-grid__item {
+    @include from(md) {
+        height: 100%;
+    }
+}
+
+.cards-grid--3-col {
+    @include from(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

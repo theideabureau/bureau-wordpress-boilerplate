@@ -1,0 +1,12 @@
+
+<div
+    class="icon-list"
+    data-list-type="{{ block.style }}"
+    data-columns="{{ block.columns ? block.columns : "1" }}"
+    data-block-margin="sm"
+>
+    <InnerBlocks
+        template="{{ block.template }}"
+        allowedBlocks="{{ block.allowed_blocks }}"
+    />
+</div>

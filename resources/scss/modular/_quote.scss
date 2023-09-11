@@ -1,0 +1,62 @@
+.quote {
+    position: relative;
+    padding: spacing(2);
+    padding-left: spacing(3);
+    overflow: hidden;
+    border-radius: $border-radius;
+    background: var(--white);
+    color: var(--accent-colour-primary);
+    font-size: $font-size-base;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: currentColor;
+    }
+
+    @include from("md") {
+        padding: spacing(3);
+        padding-left: spacing(4);
+        font-size: $font-size-lg;
+
+        &--large,
+        &[data-is-large="true"] {
+            padding-left: spacing(4);
+            font-size: $font-size-2xl;
+            line-height: $leading-snug;
+        }
+    }
+}
+
+.quote__text {
+    font-weight: 600;
+
+    p:first-child::before {
+        content: '"';
+    }
+
+    p:last-child::after {
+        content: '"';
+    }
+}
+
+.quote__author {
+    margin-top: spacing(2);
+}
+
+.quote--large,
+.quote[data-is-large="true"] {
+    padding: spacing(3);
+    font-size: $font-size-xl;
+    font-weight: 500;
+
+    @include from("md") {
+        padding-left: spacing(4);
+        font-size: $font-size-2xl;
+       
+    }
+}

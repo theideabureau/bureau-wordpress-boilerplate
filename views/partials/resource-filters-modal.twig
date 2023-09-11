@@ -1,0 +1,19 @@
+{% extends "templates/blocks/containers/modal.twig" %}
+
+{% set title = block.title %}
+{% set modal_id = block.id %}
+
+{% block content %}
+    {% include 'partials/resource-filters.twig' with {
+        'block': block.filters
+    } %}
+{% endblock %}
+
+{% block footer %}
+    <button
+        class="resource-filters-modal__button button button--denim-blue"
+        @click="showModal = false"
+    >
+        Close
+    </button>
+{% endblock %}

@@ -1,0 +1,150 @@
+{
+    "key": "group_64b145f2ec016",
+    "title": "Block → Content Panel",
+    "fields": [
+        {
+            "key": "field_64b1460939d97",
+            "label": "Show Background?",
+            "name": "show_background",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_64c7b97df7433",
+            "label": "Center Text?",
+            "name": "center_text",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_64c90ea75a312",
+            "label": "Is Dark?",
+            "name": "is_dark",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_64ca119d492f1",
+            "label": "Is Transparent?",
+            "name": "is_transparent",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_64c97138b907a",
+            "label": "Colour Scheme",
+            "name": "colour_scheme",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "inherit": "Inherit",
+                "brand": "Brand",
+                "#Core Services": "#Core Services",
+                "24-7-services": "24\/7 Services",
+                "data-analytics": "Data & Analytics",
+                "investigation-services": "Investigation Services",
+                "loss-adjusting": "Loss Adjusting",
+                "motor-services": "Motor Services",
+                "park-home-and-leisure": "Park Home & Leisure",
+                "repair-and-restoration": "Repair & Restoration",
+                "subsidence": "Subsidence",
+                "surveying-and-project-management": "Surveying Services",
+                "technology-and-saas": "Technology & SaaS",
+                "third-party-administration": "Third Party Administration",
+                "underground-services": "Underground Services",
+                "validation": "Validation",
+                "#Other Services": "#Other Services",
+                "synergy-cloud": "Synergy Cloud",
+                "weathernet": "Weathernet",
+                "#Misc" : "#Misc",
+                "sustainability" : "Sustainability"
+            },
+            "default_value": "inherit",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "project-name\/content-panel"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1690964407
+}

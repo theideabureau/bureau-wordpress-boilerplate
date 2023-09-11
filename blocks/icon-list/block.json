@@ -1,0 +1,10 @@
+{
+    "name": "project-name/icon-list",
+    "title": "Icon List",
+    "category": "project-name-blocks",
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page", "service", "post"],
+        "renderTemplate": "render.php"
+    }
+}

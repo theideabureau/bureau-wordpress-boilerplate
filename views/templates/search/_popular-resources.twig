@@ -1,0 +1,9 @@
+{% if resources %}
+    <h4>Popular Searches</h4>
+
+    {% for block in resources %}
+        {% include 'templates/blocks/icon-card-basic.twig' with {
+            block
+        } %}
+    {% endfor %}
+{% endif %}

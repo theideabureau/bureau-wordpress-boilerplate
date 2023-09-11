@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="single-post container">
+        <article class="grid">
+            <header class="grid__col grid__col--12-md grid__col--10-lg grid__col--offset-2-lg / single-post__header">
+
+
+                <div class="grid">
+                    <div class="grid__col grid__col--12-md grid__col--6-lg">
+                        <h1 class="single-post__title">
+                            {{ single.post.title }}
+                        </h1>
+
+                        <p>
+                            {{ single.post.date }}
+                        </p>
+                    </div>
+
+                    <div class="grid__col grid__col--12-md grid__col--6-lg">
+                        <div class="image-single" data-border-location="se">
+                            {{ imgix({
+                                class: 'article-card__image',
+                                src: single.post.thumbnail.src,
+                                alt: single.post.thumbnail.alt,
+                                params: {
+                                    auto: 'format'
+                                },
+                                scrset_widths: [368, 736, 1024, 1536, 2048, 2560, 3072],
+                                sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1232px) 33vw, 368px'
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <main class="grid__col grid__col--10-md grid__col--offset-2-md grid__col--8-lg grid__col--offset-3-lg / single-post__main content-rich-text">
+                {{ single.post.content | raw }}
+            </main>
+        </article>
+    </div>
+
+{% endblock %}

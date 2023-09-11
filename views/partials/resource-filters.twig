@@ -1,0 +1,59 @@
+<div class="resource-filters">
+    {% if block.title %}
+      <h2 class="resource-filters__title">
+        {{ block.title }}
+      </h2>
+    {% endif %}
+
+    <form class="resource-filters__form">
+        {% for fieldset in block.fields %}
+          <fieldset class="resource-filters__fieldset">
+            <legend class="resource-filters__subtitle">
+              {{ fieldset.name }}
+
+              {% if fieldset.description %}
+                {% include 'templates/blocks/tooltip.twig' with {
+                    'block': {
+                        'text': fieldset.description,
+                        'position': 'right'
+                    }
+                } %}
+              {% endif %}
+            </legend>
+
+            {% if fieldset.select %}
+                {% include 'templates/blocks/alpine/select.twig' with {
+                    'block': {
+                        options: fieldset.select,
+                        placeholder: fieldset.placeholder,
+                        model: "filters.#{fieldset.key}",
+                    }
+                } %}
+            {% endif %}
+
+            {% if fieldset.checkboxes %}
+                {% for value, label in fieldset.checkboxes %}
+                    <div class="resource-filters__checkbox">
+                        {% include 'templates/blocks/alpine/checkbox.twig' with {
+                            'block': {
+                                label,
+                                value,
+                                model: "filters.#{fieldset.key}",
+                            }
+                        } %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </fieldset>
+        {% endfor %}
+    </form>
+
+    <button
+        x-show="showFilterReset"
+        class="resource-filters__reset button button--small button--teal"
+        type="button"
+        @click="resetFilters"
+    >
+        Reset filters
+    </button>
+</div>

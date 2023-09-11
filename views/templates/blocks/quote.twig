@@ -1,0 +1,18 @@
+<figure
+    class="quote"
+    data-accent-colour="{{ block.color }}"
+    data-is-large="{{ block.is_large ? 'true' : 'false' }}"
+    data-block-margin="md"
+>
+    <blockquote class="quote__text">
+        {{ block.text }}
+    </blockquote>
+
+    {% if block.show_citation and block.author %}
+        <figcaption class="quote__author">
+            {% include 'templates/blocks/author.twig' with {
+                'block': block.author
+            } %}
+        </figcaption>
+    {% endif %}
+</figure>

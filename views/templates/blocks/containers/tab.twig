@@ -1,0 +1,12 @@
+<div
+    {% if block.is_preview == false %}
+        x-show="currentTab === '{{ block.id }}'"
+    {% endif %}
+    class="event-tab / block-container"
+    data-block-gap="tiny"
+    data-span="{{ block.span }}"
+>
+    <h2 class="event-tab__heading / h4">{{ block.heading }}</h2>
+
+    <InnerBlocks />
+</div>

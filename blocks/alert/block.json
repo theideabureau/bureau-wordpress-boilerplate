@@ -1,0 +1,15 @@
+{
+    "name": "project-name/alert",
+    "title": "Alert",
+    "category": "project-name-blocks",
+    "supports": {
+        "jsx": true,
+        "align": ["center", "full"],
+        "align_text": true
+    },
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page", "service"],
+        "renderTemplate": "render.php"
+    }
+}

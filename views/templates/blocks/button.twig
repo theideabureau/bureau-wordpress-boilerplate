@@ -1,0 +1,27 @@
+<a
+    href="{{ block.link.url }}"
+    class="button {{ block.class ? block.class : '' }}"
+    target="{{ block.link.target }}"
+    data-is-ghost="{{ block.is_ghost ? 'true' : 'false' }}"
+    data-is-light="{{ block.is_light ? 'true' : 'false' }}"
+    data-is-reversed="{{ block.icon.position is same as('start') ? 'true' : 'false' }}"
+    data-is-small="{{ block.is_small ? 'true' : 'false' }}"
+    data-is-text="{{ block.is_text ? 'true' : 'false' }}"
+    aria-disabled="{{ block.disabled ? 'true' : 'false'}}"
+    {{ block.is_download ? 'download' : ''}}
+    data-block-margin="sm"
+>
+    {{ block.link.title }}
+
+    {% if block.hide_icon is not defined or block.hide_icon == false %}
+        {% if block.icon.name %}
+            <i class="button__icon">
+                <svg><use xlink:href="#{{ block.icon.name }}" /></svg>
+            </i>
+        {% else %}
+            <i class="button__icon button__icon--arrow">
+                <svg><use xlink:href="#icon-arrow-right" /></svg>
+            </i>
+        {% endif %}
+    {% endif %}
+</a>

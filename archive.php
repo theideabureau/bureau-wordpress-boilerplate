@@ -1,35 +1,45 @@
-<?php // archive.php ?>
+<?php
 
-<?php get_header(); ?>
+/**
+ * The template for displaying Archive pages.
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ */
 
-	<?php if ( is_category() ) : ?>
-		<h1><?php single_cat_title(); ?></h1>
-	<?php elseif( is_tag() ) : ?>
-		<h1><?php single_tag_title(); ?></h1>
-	<?php elseif( is_tax() ) : ?>
-		<h1><?php single_cat_title(); ?></h1>
-	<?php elseif (is_day()) : ?>
-		<h1>Archive for <?php the_time('F jS, Y'); ?></h1>
-	<?php elseif (is_month()) : ?>
-		<h1>Archive for <?php the_time('F, Y'); ?></h1>
-	<?php elseif (is_year()) : ?>
-		<h1>Archive for <?php the_time('Y'); ?></h1>
-	<?php elseif (is_author()) : ?>
-		<h1>Author Archive</h1>
-	<?php else : ?>
-		<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
-	<?php endif;?>
+namespace App;
 
-	<?php if ( have_posts() ) : the_post(); ?>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		<article>
+class ArchiveController extends Controller
+{
+    public function handle()
+    {
+        $data = Timber::get_context();
+        $data['title'] = 'Archive';
 
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        if (is_day()) {
+            $data['title'] = 'Archive: ' . get_the_date('D M Y');
+        } elseif (is_month()) {
+            $data['title'] = 'Archive: ' . get_the_date('M Y');
+        } elseif (is_year()) {
+            $data['title'] = 'Archive: ' . get_the_date('Y');
+        } elseif (is_tag()) {
+            $data['title'] = single_tag_title('', false);
+        } elseif (is_category()) {
+            $data['title'] = single_cat_title('', false);
+        } elseif (is_post_type_archive()) {
+            $data['title'] = post_type_archive_title('', false);
+        }
 
-			<?php the_content(); ?>
+        // TODO: Currently only works for posts, fix for custom post types
+        $data['posts'] = Post::query();
 
-		</article>
-
-	<?php endif; ?>
-
-<?php get_footer(); ?>
+        return new TimberResponse('templates/posts.twig', $data);
+    }
+}

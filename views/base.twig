@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+
+    {% include 'partials/html-header.twig' %}
+
+    <body class="{{ body_class }}">
+        <div
+            class="base-layout"
+            data-accent-colour="brand"
+        >
+            {% if page.display_c_background_icon %}
+                <div class="base-layout__decor">
+                    <svg><use xlink:href="#content-panel-decor" /></svg>
+                </div>
+            {% endif %}
+
+            <div class="base-layout__header">
+                <div class="container">
+                    {% include 'partials/site-header.twig' %}
+                </div>
+            </div>
+
+            <main class="base-layout__main">
+                {% block content %}
+                    <p>Sorry, no content</p>
+                {% endblock %}
+            </main>
+
+            <div class="base-layout__footer">
+                <div class="container">
+                    {% include 'partials/double-cta.twig' with {
+                        'block': {
+                            'cards': footer.cta_cards
+                        }
+                    } %}
+
+                    {% include 'partials/site-footer.twig' %}
+                    {% include 'partials/html-footer.twig' %}
+                </div>
+            </div>
+        </div>
+
+        {{ function('wp_footer') }}
+
+        {% if environment == 'development' %}
+            <script src="http://localhost:35729/livereload.js"></script>
+        {% endif %}
+    </body>
+
+    <!-- DO NOT REMOVE: theideabureau-page-loaded -->
+</html>

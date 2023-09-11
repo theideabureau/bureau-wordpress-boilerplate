@@ -1,0 +1,11 @@
+$social-icon-size: spacing(3);
+
+.social {
+    display: inline-flex;
+    gap: spacing(2);
+}
+
+.social__icon {
+    width: $social-icon-size;
+    height: $social-icon-size;
+}

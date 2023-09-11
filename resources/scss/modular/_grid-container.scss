@@ -1,0 +1,79 @@
+$debug: false;
+
+%common-grid {
+    align-items: flex-start;
+    display: grid;
+    gap: spacing(2); // TODO: RWD $space-xl;
+
+    @include from(sm) {
+        column-gap: spacing(4);
+    }
+}
+
+.grid-container {
+    @if $debug {
+        padding: 1em;
+        background-color: rgba(0, 0, 0, .025);
+    }
+
+    > .acf-innerblocks-container {
+        @extend %common-grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        > .wp-block {
+            margin-block: 0;
+        }
+    }
+}
+
+.grid-column {
+    --columns: calc(var(--offset) + var(--span));
+
+    grid-column: span var(--columns);
+    order: var(--order);
+    height: 100%;
+
+    @extend %common-grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+
+    --span: var(--mobile-span);
+    --offset: var(--mobile-offset);
+    --order: var(--mobile-order);
+
+    @media (min-width: 768px) {
+        --span: var(--tablet-span);
+        --offset: var(--tablet-offset);
+        --order: var(--tablet-order);
+    }
+
+    @media (min-width: 1024px) {
+        --span: var(--desktop-span);
+        --offset: var(--desktop-offset);
+        --order: var(--desktop-order);
+    }
+
+    &[data-is-preview="true"] {
+        min-height: 10px;
+    }
+
+    > .grid-column-inner {
+        > .acf-innerblocks-container {
+            // @extend %common-grid;
+            // grid-template-columns: repeat(12, 1fr);
+
+            > .wp-block {
+                margin-block: 0;
+            }
+        }
+    }
+
+}
+
+.grid-column-inner {
+    grid-column: calc(var(--offset) + 1) / span var(--span);
+    height: 100%;
+
+    @if $debug {
+        background-color: rgba(0, 0, 0, .025);
+    }
+}

@@ -1,0 +1,37 @@
+<nav
+    class="page-navigation {{ block.is_sidebar ? 'page-navigation--sidebar' : '' }} no-margin"
+    data-color="{{ block.color }}"
+>
+    <div class="page-navigation__mobile glide" data-page-navigation-slider>
+        <div class="page-navigation__slider glide__track" data-glide-el="track">
+            <ul class="page-navigation__list glide__slides">
+                {% for link in block.items %}
+                    <li class="page-navigation__item gilde__slide">
+                        <a class="page-navigation__link" href="{{ link.url }}">
+                            {{ link.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;">
+                <svg><use xlink:href="#icon-chevron-left" /></svg>
+            </button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;">
+                <svg><use xlink:href="#icon-chevron-right" /></svg>
+            </button>
+        </div>
+    </div>
+    <div class="page-navigation__desktop">
+        <ul class="page-navigation__list">
+            {% for link in block.items %}
+                <li class="page-navigation__item">
+                    <a class="page-navigation__link" href="{{ link.url }}">
+                        {{ link.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

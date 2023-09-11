@@ -1,0 +1,26 @@
+<header class="basic-header">
+    <div class="basic-header__message">
+        <div class="container">
+            <p>{{ header.message }}</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="basic-header__main">
+            <a href="/" class="basic-header__logo">
+                <svg><use xlink:href="#logo" /></svg>
+            </a>
+
+            {% if header.link %}
+                <a
+                    href="{{ header.link.url }}"
+                    target="{{ header.link.target }}"
+                    class="button button--icon button--ghost button--purple-500"
+                >
+                    {{ header.link.title }}
+                    <svg><use xlink:href="#icon-arrow-right" /></svg>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</header>

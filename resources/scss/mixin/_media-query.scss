@@ -1,0 +1,76 @@
+@mixin mq($key) {
+    $matched-breakpoint: map-get($breakpoints, $key);
+
+    @if not $matched-breakpoint {
+        @warn #{ 'Breakpoint, ‘' + $key + '’ not found in config. Make sure it’s set in the config/_layout.scss' };
+    } @else {
+        @media #{ $matched-breakpoint } {
+            @content;
+        }
+    }
+}
+
+//**************
+// MEDIA QUERIES
+
+// $value: can be a number, 'landscape', or a breakpoint letter
+// $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
+
+@mixin mq($arg1, $arg2: 'min-width') {
+    $between: false;
+
+    // convert the value if it's within breakpoints
+    @if map-has-key($mq_breakpoints, $arg1) {
+        $arg1: map-get($mq_breakpoints, $arg1);
+    }
+
+    @if $arg2 =='max-width' {
+        $arg1: $arg1 - 1;
+    }
+
+    @if type-of($arg1)=='number' {
+        $arg1: $arg1 * 1px;
+    }
+
+    // maybe arg2 references a breakpoint
+    @if map-has-key($mq_breakpoints, $arg2) {
+        $arg2: map-get($mq_breakpoints, $arg2);
+        $between: true;
+    }
+
+    // maybe arg2 is a number
+    @if type-of($arg2)=='number' {
+        $arg2: ($arg2 - 1) * 1px;
+        $between: true;
+    }
+
+    @if $between ==false {
+        @media screen and (#{$arg2}: $arg1) {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (min-width: $arg1) and (max-width: $arg2) {
+            @content;
+        }
+    }
+}
+
+@mixin upto($upto) {
+    @include mq($upto, 'max-width') {
+        @content;
+    }
+}
+
+@mixin from($from) {
+    @include mq($from) {
+        @content;
+    }
+}
+
+@mixin between($from, $to) {
+    @include mq($from, $to) {
+        @content;
+    }
+}

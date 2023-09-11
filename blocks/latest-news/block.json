@@ -1,0 +1,10 @@
+{
+    "name": "project-name/latest-news",
+    "title": "Latest News",
+    "category": "project-name-blocks",
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page", "service"],
+        "renderTemplate": "render.php"
+    }
+}

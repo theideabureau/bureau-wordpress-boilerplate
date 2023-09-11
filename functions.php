@@ -1,27 +1,73 @@
-<?php // functions.php
+<?php
 
- 
- //*****************
-// FUNCTIONS LOADER
+require get_theme_root() . '/' . get_template() . '/vendor/autoload.php';
 
-// bury groups of functionality within the functions/ directory
-// loader.php will include all .php files from within
+use App\Http\Lumberjack;
+use Dotenv\Dotenv;
 
-require_once('functions/loader.php');
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
+// Create the Application Container
+$app = require_once('bootstrap/app.php');
 
- //**************
-// THEME SUPPORT
+// Bootstrap Lumberjack from the Container
+$lumberjack = $app->make(Lumberjack::class);
+$lumberjack->bootstrap();
 
-add_theme_support('post-thumbnails');
-add_theme_support('menus');
+if (! function_exists('get_field')) {
+    return;
+}
 
+// Import our routes file
+require_once('routes.php');
 
- //****************
-// REGISTER IMAGES
+// Set global params in the Timber context
+add_filter('timber_context', [$lumberjack, 'addToContext']);
 
-// standard images
-add_image_size('standard_image', 100, 100, TRUE);
+function humanDateRanges($start, $end)
+{
+    $startTime = strtotime($start);
+    $endTime = strtotime($end);
+    $divider = '-';
 
-// aspect ratio
-add_aspect_ratio('4x3', 100, 4, 3);
+    if (date('Y', $startTime) != date('Y', $endTime)) {
+        // diff years
+        $start = date('F j, Y', $startTime);
+        $end = date('F j, Y', $endTime);
+    } else {
+        // same years
+        $start = date('jS F', $startTime);
+        $end = date('jS F Y', $endTime);
+
+        // same months
+        if (date('m', $startTime) == date('m', $endTime)) {
+            $start = date('jS', $startTime);
+
+            // same days
+            if (date('d', $startTime) == date('d', $endTime)) {
+                return date('jS F Y', $startTime);
+            }
+        }
+    }
+
+    return sprintf(
+        '%s %s %s',
+        $start,
+        $divider,
+        $end
+    );
+}
+
+function generateRandomString($length = 10)
+{
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+
+    return $randomString;
+}

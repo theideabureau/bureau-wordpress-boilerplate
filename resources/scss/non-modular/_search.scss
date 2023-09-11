@@ -1,0 +1,20 @@
+.search__term {
+    font-size: 1.35em;
+}
+
+.search__form {
+    margin-top: spacing(4);
+    margin-bottom: spacing(5);
+
+    input {
+        border: 1px solid var(--brand-medium);
+
+        @include from(sm) {
+            width: 50%;
+        }
+    }
+}
+
+.search__results > :not(:last-child) {
+    margin-bottom: spacing(3);
+}

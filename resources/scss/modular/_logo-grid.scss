@@ -1,0 +1,101 @@
+.logo-grid {
+    container-type: inline-size;
+    
+    --logo-grid-gap: #{grid-gap("base")};
+    --logo-grid-cols: 2;
+}
+
+.logo-grid:not([data-is-inner-block="true"]) {
+    @extend %negative-container-wide;
+
+    padding: spacing(2) 0;
+    background: var(--white);
+
+    @include from(md) {
+        padding: spacing(6) 0;
+    }
+
+    @include from(lg) {
+        padding: spacing(9) 0;
+    }
+}
+
+.logo-grid[data-is-inner-block="true"] {
+    margin-top: spacing(3);
+    margin-bottom: spacing(3);
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    } 
+
+    .container {
+        margin: 0;
+    }
+
+    .logo-grid__image {
+        background: var(--white);
+    }
+
+    @include from(md) {
+        margin-top: spacing(4);
+        margin-bottom: spacing(4);
+    }
+}
+
+.logo-grid__list {
+    @if ($is_gutenberg == false) {
+        @container (min-width: 30rem) {
+            --logo-grid-gap: #{grid-gap("md")};
+            --logo-grid-cols: 3;
+        }
+
+        @container (min-width: 60rem) {
+            --logo-grid-gap: #{grid-gap("lg")};
+            --logo-grid-cols: 6;
+        }
+
+        @supports not (container-type: inline-size) {
+            .logo-grid__item {
+                flex: 0 0 50%;
+            }
+
+            @include from(md) {
+                .logo-grid__item {
+                    flex: 0 0 px-to-rem(196px);
+                }
+            }
+        }
+    } @else {
+        @include from(md) {
+            --logo-grid-gap: #{grid-gap("md")};
+            --logo-grid-cols: 3;
+        }
+    
+        @include from(lg) {
+            --logo-grid-gap: #{grid-gap("lg")};
+            --logo-grid-cols: 6;
+        }
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: calc(var(--logo-grid-gap) * -.5);
+}
+
+.logo-grid__item {
+    flex: 0 0 calc(100% / var(--logo-grid-cols));
+    padding: calc(var(--logo-grid-gap) * .5);
+}  
+
+.logo-grid__image {
+    width: 100%;
+    aspect-ratio: 176 / 91;
+    object-fit: contain;
+    object-position: center;
+    background: var(--brand-light);
+}

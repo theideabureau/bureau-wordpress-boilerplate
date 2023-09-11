@@ -1,0 +1,12 @@
+{
+    "title": "Two Column Header",
+    "description": "Left aligned heading with copy and call to actions",
+    "categories": [
+        "project-name-patterns"
+    ],
+    "postTypes": [
+        "page",
+        "service"
+    ],
+    "content": "<!-- wp:project-name\/grid-container {\"name\":\"ccg\/grid-container\",\"mode\":\"preview\"} -->\r\n    <!-- wp:project-name\/grid-column {\"name\":\"ccg\/grid-column\",\"data\":{\"columns_mobile\":\"8\",\"_columns_mobile\":\"field_624cb24e11f99\",\"columns_tablet\":\"8\",\"_columns_tablet\":\"field_624cb25811f9a\",\"columns_desktop\":\"8\",\"_columns_desktop\":\"field_624cb26211f9c\",\"columns\":\"\",\"_columns\":\"field_624cb20111f98\",\"offsets_mobile\":\"0\",\"_offsets_mobile\":\"field_624d3f8ccaf81\",\"offsets_tablet\":\"0\",\"_offsets_tablet\":\"field_624d3f8ccaf82\",\"offsets_desktop\":\"0\",\"_offsets_desktop\":\"field_624d3f8ccaf83\",\"offsets\":\"\",\"_offsets\":\"field_624d3f8ccaf80\",\"orders_mobile\":\"0\",\"_orders_mobile\":\"field_64293aac8f89a\",\"orders_tablet\":\"0\",\"_orders_tablet\":\"field_64293aac8f89b\",\"orders_desktop\":\"0\",\"_orders_desktop\":\"field_64293aac8f89c\",\"orders\":\"\",\"_orders\":\"field_64293aac8f899\"},\"mode\":\"preview\"} -->\r\n    <!-- wp:paragraph {\"placeholder\":\"Start adding your content here\"} -->\r\n    <p>This is a grid item<\/p>\r\n    <!-- \/wp:paragraph -->\r\n    <!-- \/wp:project-name\/grid-column -->\r\n\r\n    <!-- wp:project-name\/grid-column {\"name\":\"ccg\/grid-column\",\"data\":{\"columns_mobile\":\"4\",\"_columns_mobile\":\"field_624cb24e11f99\",\"columns_tablet\":\"4\",\"_columns_tablet\":\"field_624cb25811f9a\",\"columns_desktop\":\"4\",\"_columns_desktop\":\"field_624cb26211f9c\",\"columns\":\"\",\"_columns\":\"field_624cb20111f98\",\"offsets_mobile\":\"0\",\"_offsets_mobile\":\"field_624d3f8ccaf81\",\"offsets_tablet\":\"0\",\"_offsets_tablet\":\"field_624d3f8ccaf82\",\"offsets_desktop\":\"0\",\"_offsets_desktop\":\"field_624d3f8ccaf83\",\"offsets\":\"\",\"_offsets\":\"field_624d3f8ccaf80\",\"orders_mobile\":\"0\",\"_orders_mobile\":\"field_64293aac8f89a\",\"orders_tablet\":\"0\",\"_orders_tablet\":\"field_64293aac8f89b\",\"orders_desktop\":\"0\",\"_orders_desktop\":\"field_64293aac8f89c\",\"orders\":\"\",\"_orders\":\"field_64293aac8f899\"},\"mode\":\"preview\"} -->\r\n    <!-- wp:paragraph {\"placeholder\":\"Start adding your content here\"} -->\r\n    <p>Second grid column<\/p>\r\n    <!-- \/wp:paragraph -->\r\n    <!-- \/wp:project-name\/grid-column -->\r\n    <!-- \/wp:project-name\/grid-container -->"
+}

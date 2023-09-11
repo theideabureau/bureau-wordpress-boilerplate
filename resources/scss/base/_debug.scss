@@ -1,0 +1,5 @@
+a:not([href]),
+a[href=""],
+a[href="#"] {
+    border: 2px dashed crimson;
+}

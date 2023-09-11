@@ -1,0 +1,128 @@
+.site-footer {
+    @extend %negative-container-wide;
+
+    padding: spacing(5) 0 spacing(2);
+    background: var(--brand-dark);
+    color: var(--white);
+    text-align: center;
+
+    @include from(md) {
+        padding: spacing(5) 0;
+        text-align: left;
+    }
+
+    @include from(lg) {
+        padding: spacing(7) 0;
+    }
+}
+
+.site-footer__inner {
+    @extend %grid;
+
+    grid-template-columns: 1fr;
+    grid-row-gap: 0;
+
+    @include from(md) {
+        grid-template-columns: 8fr 4fr;
+        grid-template-areas:
+            "about rating"
+            "navigation navigation"
+            "social social"
+            "copyright copyright";
+    }
+
+    @include from(lg) {
+        grid-template-columns: 3fr 7fr 2fr;
+        grid-template-areas:
+            "about navigation rating"
+            "social social social"
+            "copyright copyright copyright";
+    }
+}
+
+.site-footer__logo {
+    display: inline-flex;
+    height: 50px;
+    justify-items: start;
+
+    svg {
+        width: auto;
+    }
+}
+
+.site-footer__tagline {
+    max-width: 40ch;
+    margin: spacing(2) auto 0;
+    font-size: $font-size-sm;
+
+    @include from(md) {
+        margin: spacing(2) 0 0;
+        font-size: $font-size-lg;
+    }
+}
+
+.site-footer__nav {
+    margin: spacing(3) 0 spacing(1.5);
+
+    @include from(md) {
+        grid-area: navigation;
+        margin: 0 0 spacing(3);
+    }
+}
+
+.site-footer__nav-links {
+    @include from(md) {
+        grid-area: navigation;
+    }
+
+    @include from(lg) {
+        columns: 3;
+        column-fill: balance;
+        column-gap: spacing(3);
+        break-inside: avoid;
+    }
+}
+
+.site-footer__nav-item {
+    margin-bottom: spacing(1.5);
+
+    &:nth-child(8) {
+        break-before: column;
+    }
+}
+
+.site-footer__link {
+    @extend %nav-link;
+}
+
+.site-footer__social {
+    @include from(md) {
+        grid-area: social;
+    }
+}
+
+.site-footer__rating {
+    background-color: var(--white);
+    align-self: flex-start;
+    padding: spacing(2);
+    max-width: 15rem;
+    margin: 0 auto spacing(3);
+
+    @include from(md) {
+        grid-area: rating;
+    }
+}
+
+.site-footer__copyright {
+    margin-top: spacing(4);
+    padding-top: spacing(1.5);
+    border-top: 1px solid #edf3f8;
+    font-size: $font-size-xs;
+
+    @include from(md) {
+        grid-area: copyright;
+        margin-top: spacing(2);
+        display: flex;
+        justify-content: space-between;
+    }
+}

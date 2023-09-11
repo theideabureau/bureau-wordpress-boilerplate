@@ -1,0 +1,3 @@
+@function spacing($number) {
+	@return $base-spacing * $number;
+}

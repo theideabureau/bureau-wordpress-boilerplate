@@ -1,0 +1,26 @@
+<div class="select">
+    <label class="select__label visually-hidden" for="{{ block.id }}">{{ block.label }}</label>
+    <select
+        class="select__input"
+        id="{{ block.id }}"
+        {% if block.model is defined %}
+            x-model="{{ block.model }}"
+        {% endif %}
+    >
+        {% if block.placeholder %}
+            <option class="select__option select__option--placeholder" value="">
+                {{ block.placeholder }}
+            </option>
+        {% endif %}
+
+        {% for value, label in block.options %}
+            <option class="select__option" value="{{ value }}">
+                {{ label }}
+            </option>
+        {% endfor %}
+    </select>
+    <svg class="select__arrow">
+        <use xlink:href="#icon-chevron-down"></use>
+    </svg>
+</div>
+

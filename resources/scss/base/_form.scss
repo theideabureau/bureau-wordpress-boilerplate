@@ -1,0 +1,21 @@
+// TODO: add once the form input designs are ready
+
+select,
+input {
+    display: inline-block;
+    width: 100%;
+    padding: spacing(1);
+    // border: 1px solid get-color("denim-blue");
+    border-radius: $border-radius;
+    background-color: var(--white);
+    // color: get-color("denim-blue");
+    font-size: $font-size-sm;
+
+    &::placeholder {
+        // color: get-color("neutral");
+    }
+
+    &.-is-error {
+        color: red;
+    }
+}

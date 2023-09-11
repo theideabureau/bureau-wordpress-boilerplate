@@ -1,0 +1,61 @@
+$font-family: 'Montserrat', sans-serif;
+
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+$font-weight-regular: 400;
+
+$leading-snug: 1.3;
+$leading-relaxed: 1.6;
+$leading-none: 1;
+
+$font-size-9xl: px-to-rem(128px);
+$font-size-8xl: px-to-rem(96px);
+$font-size-7xl: px-to-rem(72px);
+$font-size-6xl: px-to-rem(60px);
+$font-size-5xl: px-to-rem(48px);
+$font-size-4xl: px-to-rem(36px);
+$font-size-3xl: px-to-rem(30px);
+$font-size-2xl: px-to-rem(24px);
+$font-size-xl: px-to-rem(20px);
+$font-size-lg: px-to-rem(18px);
+$font-size-base: 1rem;
+$font-size-sm: px-to-rem(14px);
+$font-size-xs: px-to-rem(12px);
+
+$headings-leading: $leading-snug;
+$headings: (
+    'h1': (
+        'font-size': clamp(#{$font-size-2xl}, 7vw, #{$font-size-4xl})
+    ),
+    'h2': (
+        'font-size': clamp(#{$font-size-2xl}, 6.4vw, #{$font-size-3xl}),
+        'font-weight': 600,
+    ),
+    'h3': (
+        'font-size': clamp(#{$font-size-xl}, 5.3333vw, #{$font-size-2xl}),
+        'font-weight': 600,
+    ),
+    'h4': (
+        'font-size': clamp(#{$font-size-lg}, 4.8vw, #{$font-size-xl}),
+        'font-weight': 500,
+        'leading': $leading-relaxed
+    ),
+);
+
+
+$body-leading: $leading-relaxed;
+$body-text: (
+    'lg': (
+        'font-size': $font-size-lg
+    ),
+    'base': (
+        'font-size': $font-size-base
+    ),
+    'sm': (
+        'font-size': $font-size-sm
+    ),
+    'xs': (
+        'font-size': $font-size-xs,
+        'leading': $leading-snug
+    ),
+);

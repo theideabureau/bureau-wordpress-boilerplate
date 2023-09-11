@@ -1,0 +1,3 @@
+@function grid-gap($name) {
+	@return map-get($grid-gap, $name);
+}

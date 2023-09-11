@@ -1,0 +1,37 @@
+<div
+    id="{{ block.id }}"
+    class="grid-column"
+    data-block="grid-column"
+    data-is-preview="{{ block.is_preview }}"
+    style="
+        --mobile-span: {{ block.span.mobile }};
+        --tablet-span: {{ block.span.tablet }};
+        --desktop-span: {{ block.span.desktop }};
+
+        --mobile-offset: {{ block.offset.mobile }};
+        --tablet-offset: {{ block.offset.tablet }};
+        --desktop-offset: {{ block.offset.desktop }};
+
+        --mobile-order: {{ block.order.mobile }};
+        --tablet-order: {{ block.order.tablet }};
+        --desktop-order: {{ block.order.desktop }};
+    ">
+    <div class="grid-column-inner">
+    	<InnerBlocks
+            template="{{ block.template }}"
+        />
+    </div>
+</div>
+
+{% if block.is_preview %}
+    <script>
+        (function(){
+            let $block = document.querySelector('#{{ block.id }}');
+
+            if ($block.closest('.wp-block')) {
+                $block.closest('.wp-block').style.gridColumn = 'span {{ block.span.desktop + block.offset.desktop }}';
+                $block.closest('.wp-block').style.width = '100%';
+            }
+        })();
+    </script>
+{% endif %}
