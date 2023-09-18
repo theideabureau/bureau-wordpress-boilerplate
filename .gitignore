@@ -9,17 +9,17 @@ Thumbs.db
 .tmp
 
 # npm
-node_modules
-npm-debug.log
-package-lock.json
+/node_modules
+/npm-debug.log
+/package-lock.json
 
 # composer
-vendor
-composer.phar
-composer.lock
+/vendor
+/composer.phar
+/composer.lock
 
 # project
 .env
-dist
+/dist
 
 # others
